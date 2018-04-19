@@ -1,0 +1,146 @@
+body{
+    background-image: url("background.jpg");
+
+}
+#nav{
+    width: 1370px;
+    height: 70px;
+    /* border: 1px solid green; */
+    background-image: url("nav1.jpeg");
+    position: fixed
+}
+ul{
+    list-style-type: none;
+}
+ul > li{
+    float: left;
+    margin-top: 25px;
+}
+a{
+    text-decoration: none;
+    color: lightgrey;
+    padding: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+a:hover{
+    color: rgb(247, 121, 48);
+}
+#search{
+    width: 25px;
+    padding-right: 15px;
+    padding-left: 50px;   
+    float: left;
+    margin-top: 18px;
+}
+#login{
+    width: 20px;
+    padding-left: 10px;   
+    float: left;
+    margin-top: 18px;
+}
+#logo{
+    width: 130px;
+    float: left;
+    margin-right: 50px; 
+    margin-left: 185px;
+}
+#wrapper{
+    width: 1160px;
+    /* border: 1px solid green; */
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 105px;
+    margin-top: 80px; 
+}
+#menu{
+    width: 190px;
+    /* border: 1px solid green; */
+    font-size: 0.77em;
+    display: inline-block;
+    float: left;
+}
+
+#menu > ul> li{
+    /* border: 1px solid green; */
+    box-sizing: border-box;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 1px;
+    width: 190px;
+    border-radius: 3px;
+    padding: 5px; 
+    background-image: url("nav1.jpeg");
+}
+#poster{
+    /* border: 1px solid green; */
+    width: 190px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;   
+}
+
+#poster >img{
+    width: 190px;
+}
+#poster2{
+    /* border: 1px solid green; */
+    width: 1000px;
+    margin: auto;
+    height: 120px;
+    box-sizing: border-box;  
+    /* display: inline-block; */
+}
+#poster2 >img{
+    width: 1000px;
+    height: 110px;
+}
+#livescore{
+    border: 1px solid green;
+    width: 300px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    color: floralwhite;
+}
+
+#allNews{
+    width: 650px;
+    height: 455px;
+    /* border: 1px solid green; */
+    float: left;
+    margin-left: 10px;
+}
+#news{
+    /* border: 1px solid green; */
+    width: 500px;
+    float: left;
+    color: lightgrey;
+    box-sizing: border-box;
+}
+#news > img{
+    width: 500px;
+    height: 455px;
+}
+
+#news1 > img{
+    width: 150px;
+    height: 90px;
+}
+#news2 > img{
+    width: 150px;
+    height: 90px;
+}
+#news3 > img{
+    width: 150px;
+    height: 90px;
+}
+#news4 > img{
+    width: 150px;
+    height: 90px;
+}
+#news5 > img{
+    width: 150px;
+    height: 90px;
+}
