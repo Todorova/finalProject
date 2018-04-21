@@ -1,5 +1,5 @@
 app.controller('MainController', function ($scope, $http, $timeout) {
-    $http.get('http://localhost:3000/news').then(function (response) {
+    $http.get(window.location.origin+'/news').then(function (response) {
         $scope.latestNews = response.data;
     });
     $scope.selected = 0;
