@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongodb =require("mongodb");
 var monk =require("monk");
-var db = monk('localhost:27017/Sportal');
+// var db = monk('localhost:27017/Sportal');
+var mongoPassword=process.env.MONGO_PASS;
+var db = monk(`mongodb://ittalents:${mongoPassword}@ds251179.mlab.com:51179/it-talents-final-project`);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
