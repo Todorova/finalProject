@@ -1,21 +1,13 @@
 <div id='allNews'>
-    <section id='news'>
-        <img src="http://media1.santabanta.com/full1/Football/Football%20Abstract/football-abstract-13a.jpg" alt="">
-    </section>
-    <section id='news1'>
-        <img src="https://ichef.bbci.co.uk/images/ic/480x270/p05394v7.jpg" alt="">
-    </section>
-    <section id='news2'>
-        <img src="http://www.dalafm.co.ke/wp-content/uploads/2017/12/FOOTBALL-WEB.jpg" alt="">
-    </section>
-    <section id='news3'>
-        <img src="http://www.dalafm.co.ke/wp-content/uploads/2017/12/FOOTBALL-WEB.jpg" alt="">
-    </section>
-    <section id='news4'>
-        <img src="https://ichef.bbci.co.uk/images/ic/480x270/p05394v7.jpg" alt="">
-    </section>
-    <section id='news5'>
-        <img src="http://www.dalafm.co.ke/wp-content/uploads/2017/12/FOOTBALL-WEB.jpg" alt="">
-    </section>
-
+    <div class="selectedNews">
+        <section>
+            <img class="selected" ng-src="{{latestNews[selected].img}}" alt="">
+            <h1>{{latestNews[selected].title}}</h1>
+        </section>
+    </div>
+    <div class="latestNews">
+        <section ng-repeat="news in latestNews">
+            <img class="aside" ng-src="{{news.img}}" alt="" ng-mouseover='$parent.selected=$index'>
+        </section>
+    </div>
 </div>

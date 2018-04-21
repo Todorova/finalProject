@@ -119,28 +119,29 @@ a:hover{
     color: lightgrey;
     box-sizing: border-box;
 }
-#news > img{
-    width: 500px;
-    height: 455px;
+img.selected {
+    max-width: 500px;
+    min-height: 400px;
 }
 
-#news1 > img{
+img.aside {
     width: 150px;
-    height: 90px;
+    float: right;
 }
-#news2 > img{
-    width: 150px;
-    height: 90px;
+
+.selectedNews {
+    float: left;
+    width: 500px;
+    height: 490px;
 }
-#news3 > img{
-    width: 150px;
-    height: 90px;
+.selectedNews h1 {
+    background: black;
+    color: rgb(247, 121, 48);
+    height: 50px;
 }
-#news4 > img{
-    width: 150px;
+
+.latestNews {
+    widows: 150px;
     height: 90px;
-}
-#news5 > img{
-    width: 150px;
-    height: 90px;
+    float: right;
 }
