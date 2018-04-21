@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
  var userCollection = req.db.get("users");
 
- userCollection.find({}, {}, function(err, data){
+ userCollection.find({}, {}, function(err, docs){
   if(err){
     res.status(500);
     res.json({err});
