@@ -9,9 +9,16 @@ router.post('/register', function (req, res, next) {
   var newUser = req.body;
 
   newUser.password = sha1(newUser.password);
+  newUser.isAdmin = false;
   var usersCollection = req.db.get('users');
   usersCollection.insert(newUser, function (err, dock) {
-    res.json(dock);
+    if (err) {
+      res.status(500);
+      res.json(err);
+    } else {
+      res.status(200);
+      res.json(dock);
+    }
   });
 });
 

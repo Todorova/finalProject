@@ -29,7 +29,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 function checkLogin(req, res, next) {
-  console.log(req.session);
   if ((req.session) && (req.session.user)) {
     next();
   } else {
@@ -57,7 +56,7 @@ app.use(function(req, res, next){
 
 app.use('/', indexRouter);
 app.use('/users/login', loginRouter)
-app.use('/users',checkLogin, usersRouter);
+app.use('/users', usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
 app.use('/categories', categoriesRouter);

@@ -21,14 +21,14 @@ console.log($rootScope.loggedUser);
      UserService.login($scope.user).then(function(response){ 
    
       if(response.status >= 200 && response.status <= 399){
-      $rootScope.loggedUser = response.data._id;
+      $rootScope.loggedUser = response.data;
       console.log($rootScope.loggedUser);
       $location.path('/');
       }
     })
     .catch(function(err){
       alert("Грешно име или парола");
-    })
+    });
     
   }
 

@@ -34,7 +34,11 @@
                 </li>
             </ul>
             <img id='search' src="assets/search.png" alt="">
-            <a href="#!/user"><img id='login' src="assets/login2.png" alt=""></a>
+            <a href="#!/user">
+                <img id='login' src="assets/login2.png" alt="">
+                <p ng-show="loggedUser.username">{{loggedUser.username}}</p>
+            </a>
+            <a  href="#!/admin">Админ</a>
         </nav>
     </header>
     <main>
@@ -86,6 +90,7 @@
     <script src='angular/newsPreview/NewsPreviewController.js'></script>
     <script src='angular/directives/newsPreviewDirective.js'></script>
     <script src='angular/userInfo/infoController.js'></script>
+    <script src='angular/admin/adminController.js'></script>
 </body>
 
 </html>
