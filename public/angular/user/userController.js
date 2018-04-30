@@ -15,27 +15,19 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
     return empty;
   }
 
+console.log($rootScope.loggedUser);
 
   $scope.login = function () {
-    // UserService.getUsers().find(el =>{
-    //   if (!$scope.user.username) {
-    //     check("Username");
-    //      return;
-    //    }
-    //    if (!$scope.user.password) {
-    //      check("Password");
-    //      return;
-    //    }
-
-    //   if(el.username == $scope.user.username && el.password == $scope.user.password){
-    //     alert("lognat si");
-    //   }
-    // });
-
-    UserService.login($scope.user).then(function(response){ 
-  
-      $rootScope.loggedUser = response.data;
+     UserService.login($scope.user).then(function(response){ 
+   
+      if(response.status >= 200 && response.status <= 399){
+      $rootScope.loggedUser = response.data._id;
+      console.log($rootScope.loggedUser);
       $location.path('/');
+      }
+    })
+    .catch(function(err){
+      alert("Грешно име или парола");
     })
     
   }

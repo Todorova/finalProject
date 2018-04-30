@@ -26,6 +26,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'angular/user/user.htm',
             controller: 'userController'
         })
+        .when('/userInfo' , {
+            templateUrl: 'angular/userInfo/userInfo.htm',
+            controller: 'infoController'
+        })
         .otherwise({
             templateUrl: 'angular/main/main.htm',
             controller: 'MainController'

@@ -1,0 +1,21 @@
+
+
+
+<div>Новини</div>
+<div>Видео</div>
+<div>Снимки</div>
+<div>
+    <input ng-model="news.title" type="text" placeholder="title">
+    <br/>
+    <textarea ng-model="news.text" rows="36" cols="100"></textarea>
+    <select ng-model="news.category1">
+        <option ng-repeat="category in categories">{{category}}</option>
+    </select>
+    <select ng-model="news.category2">
+            <option ng-repeat="category in categories">{{category}}</option>
+        </select>
+        <select ng-model="news.category3">
+                <option ng-repeat="category in categories">{{category}}</option>
+            </select>
+    <button ng-click ="addNewNews()">add</button>
+</div>

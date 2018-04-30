@@ -18,6 +18,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var newsRouter = require('./routes/news');
 var loginRouter = require('./routes/login');
+var waitingRouter = require('./routes/waitingNews');
 var menuRouter = require('./routes/menu');
 var categoriesRouter = require('./routes/categories');
 
@@ -32,8 +33,8 @@ function checkLogin(req, res, next) {
   if ((req.session) && (req.session.user)) {
     next();
   } else {
-    res.json({ status: 'not authorized' });
     res.status(401);
+    res.json({ status: 'not authorized' });
   }
 }
 
@@ -60,6 +61,7 @@ app.use('/users',checkLogin, usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
 app.use('/categories', categoriesRouter);
+app.use('/waitingNews', waitingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
