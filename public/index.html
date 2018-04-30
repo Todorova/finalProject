@@ -15,16 +15,16 @@
 <body ng-app="app">
     <header id='nav'>
         <nav>
-            <img id='logo' src='assets/logo.png' alt="">
+            <a href="#!/"><img id='logo' src='assets/logo.png' alt=""></a> 
             <ul>
-                <li >
+                <li>
                     <a href="#!/news">Новини</a>
                 </li>
                 <li>
                     <a href="#!/video">Видео</a>
                 </li>
                 <li>
-                    <a href="">Фотогалерия</a>
+                    <a href="#!/photos">Фотогалерия</a>
                 </li>
                 <li>
                     <a href="">Статистика</a>
@@ -43,36 +43,18 @@
                 <img src="assets/bet365-2.gif" alt="">
             </section>
             <aside id='menu'>
-                <ul>
-                    <li>
-                        <a href="">БГ Футбол</a>
-                        <!-- <ul>
-                        <li><a href="">Левски</a> </li>
-                        <li><a href="">ЦСКА</a> </li>
-                        <li><a href="">Лудогорец</a> </li>
-                    </ul> -->
-                    </li>
-                    <li>
-                        <a href="">Европейски футбол</a>
-                        <!-- <ul>
-                        <li><a href="">Англия</a> </li>
-                        <li><a href="">Испания</a> </li>
-                        <li><a href="">Германия</a> </li>
-                    </ul> -->
-                    </li>
-                    <li>
-                        <a href="">Шампионска лига</a>
-                    </li>
-                    <li>
-                        <a href="">Лига европа </a>
-                    </li>
-                    <li>
-                        <a href="">Световен футбол</a>
-                    </li>
-                    <li>
-                        <a href="">Мондиал 2018</a>
+                <ul ng-controller="MenuController">
+                    <li ng-repeat="item in menu">
+                        <a ng-click="selectMenu($index)" href="#!/categories/{{item.category}}">{{item.name}}</a>
+                        <ul ng-show="$index == selectedMenu">
+                            <li ng-repeat="submenu in item.children">
+                                <a href="#!/categories/{{submenu.category}}">{{submenu.name}}  </a>
+                          
+                            </li>
+                        </ul>
                     </li>
                 </ul>
+
                 <section id='poster'>
                     <img src="assets/betfair2.gif" alt="">
                     <img src="assets/bet365.gif" alt="">
@@ -97,6 +79,12 @@
     <script src='angular/main/MainController.js'></script>
     <script src='angular/user/userController.js'></script>
     <script src='angular/news/NewsController.js'></script>
+    <script src='angular/video/VideoController.js'></script>
+    <script src='angular/photos/PhotosController.js'></script>
+    <script src='angular/menu/MenuController.js'></script>
+    <script src='angular/categories/CategoryController.js'></script>
+    <script src='angular/newsPreview/NewsPreviewController.js'></script>
+    <script src='angular/directives/newsPreviewDirective.js'></script>
 </body>
 
 </html>

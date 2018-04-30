@@ -10,10 +10,16 @@ var db = monk(`mongodb://ittalents:ittalents@ds251179.mlab.com:51179/it-talents-
 var session = require('express-session');
 
 
+
+var db = monk(`mongodb://ittalents:ittalents@ds251179.mlab.com:51179/it-talents-final-project`);
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var newsRouter = require('./routes/news');
 var loginRouter = require('./routes/login');
+var menuRouter = require('./routes/menu');
+var categoriesRouter = require('./routes/categories');
 
 var app = express();
 
@@ -52,6 +58,8 @@ app.use('/', indexRouter);
 app.use('/users/login', loginRouter)
 app.use('/users',checkLogin, usersRouter);
 app.use('/news', newsRouter);
+app.use('/menu', menuRouter);
+app.use('/categories', categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -49,11 +49,11 @@ a:hover{
     /* border: 1px solid green; */
     box-sizing: border-box;
     display: inline-block;
-    margin-left: 105px;
+    margin-left: 7%;
     margin-top: 80px; 
 }
 #menu{
-    width: 17%;
+    max-width: 17%;
     /* border: 1px solid green; */
     font-size: 0.77em;
     display: inline-block;
@@ -77,7 +77,6 @@ a:hover{
     width: 97%;
     margin-top: 50px;
     box-sizing: border-box;
-    /* display: inline-block; */
     float: left;   
 }
 
@@ -89,11 +88,9 @@ a:hover{
     width: 60%;
     margin: auto;
     box-sizing: border-box;  
-    /* display: inline-block; */
 }
 #poster2 >img{
     width: 100%;
-    /* margin: auto; */
 }
 #livescore{
     /* border: 1px inset rgb(99, 221, 99); */
@@ -107,34 +104,34 @@ a:hover{
 
 #mainNews{
     width: 57%;
-    height: 20%;
+    height: 17%;
     /* border: 1px solid green; */
-    border:1px inset black ;
+    border: 2px inset black ;
     float: left;
     margin-left: 3px;
     display: inline-block;
 }
-#news{
-    /* border: 1px inset black; */
-    width: 90%;
-    box-sizing: border-box;
-}
-
 img.aside {
-    width: 19%;
+    width: 18%;
     float: right;
     border:1px inset black ;
 }
 
 .selectedNews {
-    width: 80%;
+    width: 81%;
     float: left;
 }
 .selectedNews h1 {
-    background-image: url(nav1.jpeg) ;
+    /* background-image: url(nav1.jpeg) ; */
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* border:2px inset black ; */
+    padding-left: 3%;
+}
+.selectedNews img {
+    /* background-image: url(nav1.jpeg) ; */
+   float: left;
+   width: 100%;
+   border: 2px inset black ;
 }
 
 .latestNews {
@@ -210,4 +207,94 @@ img.aside {
     margin-top: 3%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#allVideos{
+    width: 57%;
+    background-color:  #292828;
+    border:1px inset black ;
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+}
+.allVideos img{
+    width: 60%;
+    float: left;
+    margin-top: 1%
+}
+.allVideos h1{
+    width: 35%;
+    float: right;
+    margin-top: 3%;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#allPhotos{
+    width: 57%;
+    background-color:  #292828;
+    border:1px inset black ;
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+}
+.allPhotos img{
+    width: 60%;
+    float: left;
+    margin-top: 1%
+}
+.allPhotos h1{
+    width: 35%;
+    float: right;
+    margin-top: 3%;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+#allCategories{
+    width: 57%;
+    background-color:  #292828;
+    border:1px inset black ;
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+}
+.allCategories img{
+    width: 60%;
+    float: left;
+    margin-top: 1%
+}
+.allCategories h1{
+    width: 35%;
+    float: right;
+    margin-top: 3%;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#newsPreview{
+    width: 57%;
+    background-color:  #292828;
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+
+}
+#newsPreview h1{
+    padding: 1%;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#newsPreview p{
+    padding: 1%;
+    font-size: 0.9em;
+    color: lightgrey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#newsPreview img {
+    width: 85%;
+    padding: 2% 6%;
+}
+#newsPreview video {
+    width: 85%;
+    padding: 2% 6%;
 }

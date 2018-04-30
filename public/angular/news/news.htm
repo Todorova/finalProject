@@ -1,6 +1,8 @@
 <div id='allNews'>
     <section class = 'allNews' ng-repeat="news in allNews">
-        <img ng-src="{{news.img}}" alt="">
-        <h1>{{news.title}}</h1>
+            <news news="news" ></news>
+            
+        <!-- <a href="#!/news/{{news._id}}"><img ng-src="{{news.img}}" alt=""></a>
+        <a href="#!/news/{{news._id}}"><h1>{{news.title}}</h1></a> -->
     </section>
 </div>

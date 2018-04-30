@@ -4,7 +4,6 @@ var router = express.Router();
 /* GET news listing. */
 router.get('/all', function (req, res, next) {
     var allNewsCollection = req.db.get("news");
-    console.log(allNewsCollection)
 
     allNewsCollection.find({}, { sort: { dateCreated: -1 } }, function (err, docs) {
         if (err) {
@@ -16,6 +15,7 @@ router.get('/all', function (req, res, next) {
         }
     });
 });
+
 router.get('/latest', function (req, res, next) {
     var newsCollection = req.db.get("news");
 
@@ -71,4 +71,58 @@ router.get('/comment', function (req, res, next) {
         }
     })
 })
+router.get('/videos', function (req, res, next) {
+    var videosCollection = req.db.get('news');
+
+    videosCollection.find({video: { $ne: ''}}, { sort: { dateCreated: -1 } }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            res.status(200);
+            res.json(docs);
+        }
+    })
+})
+router.get('/photos', function (req, res, next) {
+    var photosCollection = req.db.get('news');
+
+    photosCollection.find({video : ''}, { sort: { dateCreated: -1 } }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            res.status(200);
+            res.json(docs);
+        }
+    })
+})
+router.get('/:id', function (req, res, next) {
+    var newsCollection = req.db.get("news");
+
+    newsCollection.find({_id:req.params.id}, { }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            newsCollection.update({_id: req.params.id}, {$inc: {visited: 1}});
+            res.status(200);
+            res.json(docs[0]);
+        }
+    });
+});
+router.get('/:id/comments', function (req, res, next) {
+    var newsCollection = req.db.get("comments");
+
+    newsCollection.find({newsId:req.params.id}, { }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            res.status(200);
+            res.json(docs);
+        }
+    });
+});
+
 module.exports = router;

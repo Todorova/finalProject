@@ -2,8 +2,7 @@
 <div id='mainNews'>
     <div class="selectedNews">
         <section>
-            <img class="selected" ng-src="{{latestNews[selected].img}}" alt="">
-            <h1>{{latestNews[selected].title}}</h1>
+                <news news="latestNews[selected]" ></news>
         </section>
     </div>
     <div class="latestNews">
@@ -25,20 +24,23 @@
     </div>
     <div ng-show='selectVisited == 0'>
             <section class = 'sectionCategory' ng-repeat="news in topNews">
-                <img ng-src="{{news.img}}" alt="">
-                <h1>{{news.title}}</h1>
+                    <news news="news" ></news>
+                <!-- <img ng-src="{{news.img}}" alt="">
+                <h1>{{news.title}}</h1> -->
             </section>
     </div>
     <div ng-show='selectVisited == 1'>
         <section class = 'sectionCategory' ng-repeat="news in visitedNews">
-            <img ng-src="{{news.img}}" alt="">
-            <h1>{{news.title}}</h1>
+                <news news="news" ></news>
+            <!-- <img ng-src="{{news.img}}" alt="">
+            <h1>{{news.title}}</h1> -->
         </section>
     </div>
     <div ng-show='selectVisited == 2'>
         <section class = 'sectionCategory' ng-repeat="news in commentNews">
-            <img ng-src="{{news.img}}" alt="">
-            <h1>{{news.title}}</h1>
+                <news news="news" ></news>
+            <!-- <img ng-src="{{news.img}}" alt="">
+            <h1>{{news.title}}</h1> -->
         </section>
     </div>
 </div>
