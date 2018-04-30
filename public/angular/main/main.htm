@@ -1,4 +1,5 @@
-<div id='allNews'>
+
+<div id='mainNews'>
     <div class="selectedNews">
         <section>
             <img class="selected" ng-src="{{latestNews[selected].img}}" alt="">
@@ -8,6 +9,36 @@
     <div class="latestNews">
         <section ng-repeat="news in latestNews">
             <img class="aside" ng-src="{{news.img}}" alt="" ng-mouseover='$parent.selected=$index'>
+        </section>
+    </div>
+</div>
+
+<div id='newsCategory'>
+    <div id='category'>
+        <section>
+        <ul>
+            <li class='categories' ng-mouseover='selectVisited = 0'>ВОДЕЩИ</li>
+            <li class='categories' ng-mouseover='selectVisited = 1'>НАЙ-ЧЕТЕНИ</li>
+            <li class='categories' ng-mouseover='selectVisited = 2'>НАЙ-КОМЕНТИРАНИ</li>
+        </ul>
+        </section>
+    </div>
+    <div ng-show='selectVisited == 0'>
+            <section class = 'sectionCategory' ng-repeat="news in topNews">
+                <img ng-src="{{news.img}}" alt="">
+                <h1>{{news.title}}</h1>
+            </section>
+    </div>
+    <div ng-show='selectVisited == 1'>
+        <section class = 'sectionCategory' ng-repeat="news in visitedNews">
+            <img ng-src="{{news.img}}" alt="">
+            <h1>{{news.title}}</h1>
+        </section>
+    </div>
+    <div ng-show='selectVisited == 2'>
+        <section class = 'sectionCategory' ng-repeat="news in commentNews">
+            <img ng-src="{{news.img}}" alt="">
+            <h1>{{news.title}}</h1>
         </section>
     </div>
 </div>

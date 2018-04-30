@@ -3,7 +3,7 @@ body{
 
 }
 #nav{
-    width: 1370px;
+    width: 100%;
     height: 70px;
     /* border: 1px solid green; */
     background-image: url("nav1.jpeg");
@@ -45,7 +45,7 @@ a:hover{
     margin-left: 185px;
 }
 #wrapper{
-    width: 1160px;
+    width: 85%;
     /* border: 1px solid green; */
     box-sizing: border-box;
     display: inline-block;
@@ -53,7 +53,7 @@ a:hover{
     margin-top: 80px; 
 }
 #menu{
-    width: 190px;
+    width: 17%;
     /* border: 1px solid green; */
     font-size: 0.77em;
     display: inline-block;
@@ -70,83 +70,144 @@ a:hover{
     border-radius: 3px;
     padding: 5px; 
     background-image: url("nav1.jpeg");
+    display: inline-block;
 }
 #poster{
     /* border: 1px solid green; */
-    width: 190px;
+    width: 97%;
     margin-top: 50px;
     box-sizing: border-box;
-    display: inline-block;
-    float: right;   
+    /* display: inline-block; */
+    float: left;   
 }
 
 #poster >img{
-    width: 190px;
+    width: 100%;
 }
 #poster2{
     /* border: 1px solid green; */
-    width: 1000px;
+    width: 60%;
     margin: auto;
-    height: 120px;
     box-sizing: border-box;  
     /* display: inline-block; */
 }
 #poster2 >img{
-    width: 1000px;
-    height: 110px;
+    width: 100%;
+    /* margin: auto; */
 }
 #livescore{
-    border: 1px solid green;
-    width: 300px;
-    font-size: 0.8em;
+    /* border: 1px inset rgb(99, 221, 99); */
+    width: 25%;
     box-sizing: border-box;
     display: inline-block;
     float: right;
     color: floralwhite;
+    background-color:  #292828;
 }
 
-#allNews{
-    width: 650px;
-    height: 455px;
+#mainNews{
+    width: 57%;
+    height: 20%;
     /* border: 1px solid green; */
+    border:1px inset black ;
     float: left;
-    margin-left: 10px;
+    margin-left: 3px;
+    display: inline-block;
 }
 #news{
-    /* border: 1px solid green; */
-    width: 500px;
-    float: left;
-    color: lightgrey;
+    /* border: 1px inset black; */
+    width: 90%;
     box-sizing: border-box;
-}
-img.selected {
-    max-width: 500px;
-    min-height: 400px;
 }
 
 img.aside {
-    width: 150px;
+    width: 19%;
     float: right;
+    border:1px inset black ;
 }
 
 .selectedNews {
+    width: 80%;
     float: left;
-    width: 500px;
-    height: 490px;
 }
 .selectedNews h1 {
-    background: black;
+    background-image: url(nav1.jpeg) ;
     color: rgb(247, 121, 48);
-    height: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* border:2px inset black ; */
 }
 
 .latestNews {
-    widows: 150px;
-    height: 90px;
+    widows: 20%;
+}
+.aside:hover{
+    border: 2px outset rgb(247, 121, 48);
+}
+
+#newsCategory{
+    width: 57%;
+    /* border: 1px solid green; */
+    text-align: center;
+    display: inline-block;
+    margin-left: 3px;
+    background-color:  #292828;
+}
+#category{
+    background-image:url("nav1.jpeg") ;
+    display: inline-block;
+    box-sizing: border-box;
+    color: lightgrey;
+    width: 100%;
+    border:3px inset black ;
+}
+.categories{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 30%;
+}
+.categories:hover{
+    color: rgb(247, 121, 48);
+}
+
+#newsCategory img{
+    width: 97%;
+    float: left;
+    border: 1px inset  black;
+
+}
+#newsCategory h1{
+    width: 90%;
+    margin: auto;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.sectionCategory{
+    width: 50%;
+    float: left;
+}
+
+#allNews{
+    width: 57%;
+    background-color:  #292828;
+    border:1px inset black ;
+    /* float: left; */
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+}
+.allNews img{
+    width: 60%;
+    float: left;
+    margin-top: 1%
+}
+.allNews h1{
+    width: 35%;
     float: right;
 }
 
 .error{
     color: red;
     font-size: 3em;
+    margin-top: 3%;
+    color: rgb(247, 121, 48);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

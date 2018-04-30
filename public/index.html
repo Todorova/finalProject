@@ -17,8 +17,8 @@
         <nav>
             <img id='logo' src='assets/logo.png' alt="">
             <ul>
-                <li>
-                    <a href="">Новини</a>
+                <li >
+                    <a href="#!/news">Новини</a>
                 </li>
                 <li>
                     <a href="#!/video">Видео</a>
@@ -80,13 +80,12 @@
                 </section>
             </aside>
 
-            <div ng-view></div>
-
             <section id='livescore'>
                 <p>live score</p>
                 <img src="assets/boy.png" alt="">
-
             </section>
+            <div ng-view></div>
+
         </div>
     </main>
     <!-- app -->
@@ -97,6 +96,7 @@
     <!-- Controllers -->
     <script src='angular/main/MainController.js'></script>
     <script src='angular/user/userController.js'></script>
+    <script src='angular/news/NewsController.js'></script>
 </body>
 
 </html>
