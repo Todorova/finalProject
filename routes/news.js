@@ -97,6 +97,20 @@ router.get('/photos', function (req, res, next) {
         }
     })
 })
+router.get('/search/:title', function (req, res, next) {
+    var titleCollection = req.db.get('news');
+
+    titleCollection.find({title: new RegExp(req.params.title, 'i')}, {}, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            res.status(200);
+            res.json(docs);
+        }
+    })
+})
+
 router.get('/:id', function (req, res, next) {
     var newsCollection = req.db.get("news");
 
@@ -124,6 +138,20 @@ router.get('/:id/comments', function (req, res, next) {
         }
     });
 });
+router.post('/:id/comment', function(req, res, next) {
+    var commentCollection = req.db.get('comments');
+    var comment = req.body;
+    comment.date = new Date();
+    commentCollection.insert(comment, function(err, comment) {
+        if (err) {
+            res.status(400);
+            res.json(err);
+        } else {
+            res.json(comment);
+        }
+
+    });
+})
 
 
 

@@ -4,7 +4,6 @@ app.controller('MenuController', function ($scope, $http) {
         $scope.menu = response.data;
     });
 
-//    $scope.selectedMenu = 0;
     $scope.selectMenu = function(index) {
         $scope.selectedMenu = index;
     }

@@ -14,7 +14,7 @@ ul{
 }
 ul > li{
     float: left;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 a{
     text-decoration: none;
@@ -25,18 +25,28 @@ a{
 a:hover{
     color: rgb(247, 121, 48);
 }
-#search{
-    width: 25px;
-    padding-right: 15px;
-    padding-left: 50px;   
+
+#searchInput{
     float: left;
-    margin-top: 18px;
+    margin-top: 15px; 
+    padding-left: 10px;
+    margin-left: 10px;
+    
+}
+#search a {
+    background-color: #292828;
+    /* float:  right; */
+    width: 60%;
+    margin-top: 30px;
 }
 #login{
     width: 20px;
-    padding-left: 10px;   
     float: left;
-    margin-top: 18px;
+}
+#login img{
+    width: 20px;
+    padding-left: 1%; 
+    margin-top: 11px; 
 }
 #logo{
     width: 130px;

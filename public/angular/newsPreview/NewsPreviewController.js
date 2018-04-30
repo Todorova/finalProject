@@ -1,4 +1,4 @@
-app.controller('NewsPreviewController', function ($scope, $routeParams, $http) {
+app.controller('NewsPreviewController', function ($scope, $rootScope, $routeParams, $http) {
 
     $http.get(window.location.origin + '/news/' + $routeParams.id).then(function (response) {
         $scope.news = response.data;
@@ -8,6 +8,17 @@ app.controller('NewsPreviewController', function ($scope, $routeParams, $http) {
         $scope.comments = response.data;
     });
 
-    
+    $scope.addComment = function () {
+        $scope.newComment.newsId = $routeParams.id;
+        $http.post(window.location.origin + '/news/' + $routeParams.id + '/comment', $scope.newComment).then(function (response) {
+            console.log(response.data)
+        })
+    }
+
+    // newsId
+    // userId
+    // username
+    // date
+    // text
 });
 

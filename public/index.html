@@ -15,7 +15,9 @@
 <body ng-app="app">
     <header id='nav'>
         <nav>
-            <a href="#!/"><img id='logo' src='assets/logo.png' alt=""></a> 
+            <a href="#!/">
+                <img id='logo' src='assets/logo.png' alt="">
+            </a>
             <ul>
                 <li>
                     <a href="#!/news">Новини</a>
@@ -33,13 +35,29 @@
                     <a href="#!/userInfo">Мy sportal</a>
                 </li>
             </ul>
-            <img id='search' src="assets/search.png" alt="">
-            <a href="#!/user">
+        </nav>
+        <div  ng-controller="SearchController">
+                <input id='searchInput' type="text"  autocomplete="off" placeholder="search" ng-keyup="search()" ng-model="searchText">
+                <ul id = 'search'>
+                    <li ng-repeat="news in titles">
+                        <a ng-click="open()" href="#!/news/{{news.id}}">{{news.title}}</a>
+                    </li>
+                </ul>
+            </div>
+          <div id='login' >
+                <a href="#!/user">
+                    <img src="assets/login2.png" alt="">
+                    <p ng-show="loggedUser.username != ''">{{loggedUser.username}}</p>
+                </a>
+                <a  ng-show = 'loggedUser.isAdmin' href="#!/admin">Админ</a>
+            </div>
+
+            <!-- <a href="#!/user">
                 <img id='login' src="assets/login2.png" alt="">
                 <p ng-show="loggedUser.username">{{loggedUser.username}}</p>
             </a>
-            <a  href="#!/admin">Админ</a>
-        </nav>
+            <a  href="#!/admin">Админ</a> -->
+
     </header>
     <main>
         <div id='wrapper'>
@@ -52,8 +70,8 @@
                         <a ng-click="selectMenu($index)" href="#!/categories/{{item.category}}">{{item.name}}</a>
                         <ul ng-show="$index == selectedMenu">
                             <li ng-repeat="submenu in item.children">
-                                <a href="#!/categories/{{submenu.category}}">{{submenu.name}}  </a>
-                          
+                                <a href="#!/categories/{{submenu.category}}">{{submenu.name}} </a>
+
                             </li>
                         </ul>
                     </li>
@@ -88,6 +106,7 @@
     <script src='angular/menu/MenuController.js'></script>
     <script src='angular/categories/CategoryController.js'></script>
     <script src='angular/newsPreview/NewsPreviewController.js'></script>
+    <script src='angular//search/SearchController.js'></script>
     <script src='angular/directives/newsPreviewDirective.js'></script>
     <script src='angular/userInfo/infoController.js'></script>
     <script src='angular/admin/adminController.js'></script>

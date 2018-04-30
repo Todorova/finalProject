@@ -9,17 +9,13 @@ var mongoPassword=process.env.MONGO_PASS;
 var db = monk(`mongodb://ittalents:ittalents@ds251179.mlab.com:51179/it-talents-final-project`);
 var session = require('express-session');
 
-
-
-var db = monk(`mongodb://ittalents:ittalents@ds251179.mlab.com:51179/it-talents-final-project`);
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var newsRouter = require('./routes/news');
 var loginRouter = require('./routes/login');
 var waitingRouter = require('./routes/waitingNews');
 var menuRouter = require('./routes/menu');
+// var searchRouter = require('./routes/search');
 var categoriesRouter = require('./routes/categories');
 
 var app = express();
@@ -59,6 +55,7 @@ app.use('/users/login', loginRouter)
 app.use('/users', usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
+// app.use('/search', searchRouter);
 app.use('/categories', categoriesRouter);
 app.use('/waitingNews', waitingRouter);
 

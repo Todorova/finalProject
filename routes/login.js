@@ -5,7 +5,7 @@ var sha1 = require('sha1');
 router.post('/', function (req, res, next) {
     res.setHeader('content-type', 'application/json');
     var newUser = req.body;
-  
+
     newUser.password = sha1(newUser.password);
     console.log(newUser);
     var usersCollection = req.db.get('users');
