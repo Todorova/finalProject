@@ -1,0 +1,13 @@
+
+        <form>
+                <input type="text" placeholder="username" ng-model="user.username">
+                <input type="password" placeholder="password" ng-model="user.password">
+                <button id="loginButton" ng-click="login()">Login</button>
+                <button ng-click="addNewUser()">Register</button>
+            </form>
+            <div>
+                <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
+            </div>
+
+
+

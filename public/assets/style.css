@@ -145,3 +145,8 @@ img.aside {
     height: 90px;
     float: right;
 }
+
+.error{
+    color: red;
+    font-size: 3em;
+}
