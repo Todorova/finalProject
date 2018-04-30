@@ -138,6 +138,7 @@ router.get('/:id/comments', function (req, res, next) {
         }
     });
 });
+
 router.post('/:id/comment', function(req, res, next) {
     var commentCollection = req.db.get('comments');
     var comment = req.body;
@@ -153,6 +154,18 @@ router.post('/:id/comment', function(req, res, next) {
     });
 })
 
-
+router.post('/', function(req, res, next){
+    var data = req.body;
+        var news = req.db.get('news');
+        news.insert(data, function(err, dock){
+          if (err) {
+            res.status(500);
+            res.json(err);
+          } else {
+            res.status(200);
+            res.json(dock);
+          }
+        });
+});
 
 module.exports = router;

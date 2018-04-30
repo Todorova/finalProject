@@ -2,16 +2,32 @@ var express = require('express');
 var router = express.Router();
 
 router.delete('/:id', function (req, res) {
-  var allNews = req.db.get('books');
+  var allNews = req.db.get('waitingNews');
   var id = req.params.id;
 
-  allNews.remove({ _id: id }, function (err) {
-    if (!err) {
-      res.status(200);
-      res.json("OK - news removed!");
+  allNews.find({_id:req.params.id}, { }, function (err, docs) {
+    if (err) {
+        res.status(500);
+        res.json({ err });
     } else {
-      res.status(404);
-      res.json("No such news!");
+        allNews.remove({_id: req.params.id});
+        res.status(200);
+        res.json(docs[0]);
+    }
+});
+});
+
+router.get('/:id', function (req, res, next) {
+  var waiting = req.db.get('waitingNews');
+
+  waiting.find({_id:req.params.id}, {}, function (err, news) {
+
+    if (err) {
+      res.status(500);
+      res.json(err);
+    } else {
+      res.status(200);
+      res.json( news );
     }
   });
 });
