@@ -49,9 +49,11 @@
                 <a href="#!/user">
                     <img src="assets/login2.png" alt="">
                     <span ng-show="loggedUser.username">{{loggedUser.username}}</span>
-                    <span ng-show="loggedUser.username">Изход</span>
                     <a  ng-show = 'loggedUser.isAdmin' href="#!/admin">Админ</a>
                 </a>
+                <a href="">
+                <span ng-show="loggedUser.username">Изход</span>
+            </a>
             </div>
            
     </header>

@@ -3,9 +3,10 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
     $scope.news = {};
     $scope.showNews = false;
-
+    $scope.showVideo = false;
+    $scope.showImages = false;
     $scope.theEmpty = "";
-
+    $scope.type = "";
 
     var empty = false;
 
@@ -24,8 +25,25 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     //     $location.path('/user');
     // }
 
-    $scope.openNewsDiv = function () {
-        $scope.showNews = true;
+    $scope.openNewsDiv = function (typeS) {
+        $scope.type = typeS;
+        $scope.showNews = !$scope.showNews;
+        $scope.showImages = false;
+        $scope.showVideo = false;
+    }
+
+    $scope.openImgsDiv = function (typeS) {
+        $scope.type = typeS;
+        console.log()
+        $scope.showImages = !$scope.showImages;
+        $scope.showNews = false;
+        $scope.showVideo = false;
+    }
+
+    $scope.openVideoDiv = function(){
+        $scope.showVideo = !$scope.showVideo;
+        $scope.showNews = false;
+        $scope.showImages = false;
     }
 
     $http.get(window.location.origin + '/categories').then(function (res) {
@@ -44,6 +62,25 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             check("Текст");
             return;
         }
+    
+        if($scope.showNews){
+            if (!$scope.news.img) {
+                check("Снимка");
+                return;
+            }
+            newNews.video = "";
+        }
+
+        if($scope.showVideo){
+            if (!$scope.news.video) {
+                check("Видео");
+                return;
+            }
+            newNews.img = "";
+            $scope.showNews = false;
+            $scope.showImages = false;
+        }
+
 
         newNews.title = $scope.news.title;
         newNews.text = $scope.news.text;
@@ -64,7 +101,6 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
         }
         newNews.categories = arr;
-        newNews.video = "";
         newNews.dateCreated = new Date();
 
         $scope.news = {};
