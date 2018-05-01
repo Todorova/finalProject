@@ -1,5 +1,7 @@
 var app = angular.module('app', ['ngRoute']);
 
+// angular.module('app', ['720kb.datepicker']);
+
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/news', {
@@ -18,19 +20,23 @@ app.config(function ($routeProvider) {
             templateUrl: 'angular/photos/photos.htm',
             controller: 'PhotosController'
         })
+        .when('/statistics', {
+            templateUrl: 'angular/statistics/statistics.htm',
+            controller: 'StatisticsController'
+        })
         .when('/categories/:name', {
             templateUrl: 'angular/categories/category.htm',
             controller: 'CategoryController'
         })
-        .when('/user' , {
+        .when('/user', {
             templateUrl: 'angular/user/user.htm',
             controller: 'userController'
         })
-        .when('/userInfo' , {
+        .when('/userInfo', {
             templateUrl: 'angular/userInfo/userInfo.htm',
             controller: 'infoController'
         })
-        .when('/admin' , {
+        .when('/admin', {
             templateUrl: 'angular/admin/admin.htm',
             controller: 'adminController'
         })

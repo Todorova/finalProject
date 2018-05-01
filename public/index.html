@@ -29,7 +29,7 @@
                     <a href="#!/photos">Фотогалерия</a>
                 </li>
                 <li>
-                    <a href="">Статистика</a>
+                    <a href="#!/statistics">Статистика</a>
                 </li>
                 <li>
                     <a href="#!/userInfo">Мy sportal</a>
@@ -56,6 +56,7 @@
             <div id='login' >
                 <a href="">
                     <span ng-show="loggedUser.username">Изход</span>
+                    <span ng-show="loggedUser.username != ''">{{loggedUser.username}}</span>
                 </a>
             </div>
     </header>
@@ -110,6 +111,8 @@
     <script src='angular/directives/newsPreviewDirective.js'></script>
     <script src='angular/userInfo/infoController.js'></script>
     <script src='angular/admin/adminController.js'></script>
+    <script src='angular/statistics/StatisticsController.js'></script>
+    <script src='angular/statistics/StatisticsService.js'></script>
 </body>
 
 </html>

@@ -128,7 +128,7 @@ router.get('/:id', function (req, res, next) {
 router.get('/:id/comments', function (req, res, next) {
     var newsCollection = req.db.get("comments");
 
-    newsCollection.find({newsId:req.params.id}, { }, function (err, docs) {
+    newsCollection.find({newsId: req.params.id}, { }, function (err, docs) {
         if (err) {
             res.status(500);
             res.json({ err });

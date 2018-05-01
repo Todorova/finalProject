@@ -42,7 +42,10 @@ a:hover{
 #login{
     display: inline-block;
     /* width: 60px; */
+    width:20%;
     float: left;
+    display: inline-block;
+    box-sizing: border-box;
 }
 #login img{
     width: 20px;

@@ -1,0 +1,40 @@
+<div>
+
+    <select ng-model="country.country_id" ng-change="getLeagues()">
+        <option ng-repeat="country in countries" value="{{country.country_id}}">{{country.country_name}}</option>
+    </select>
+
+    <select ng-model="league_id">
+        <option ng-repeat="league in leagues" value="{{league.league_id}}">{{league.league_name}}</option>
+    </select>
+
+    <!-- <datepicker> -->
+    <input ng-model="from_date" type="text" />
+    <input ng-model="to_date" type="text" />
+    <button ng-click="get()">Get statistics</button>
+    <!-- </datepicker> -->
+
+    <table ng-show="statistics.length > 0">
+        <thead>
+            <tr>
+                <th>Hometeam</th>
+                <th>Awayteam</th>
+                <th>Match date</th>
+                <th>Match time</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="statistic in statistics">
+            <tr>
+                <td>{{statistic.match_hometeam_name}}</td>
+                <td>{{statistic.match_awayteam_name}}</td>
+                <td>{{statistic.match_date}}</td>
+                <td>{{statistic.match_time}}</td>
+                <td>{{statistic.match_hometeam_score}}:{{statistic.match_awayteam_score}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p ng-show=" statistics && !statistics.length ">No results for selected period</p>
+
+
+</div>
