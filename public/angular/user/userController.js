@@ -18,6 +18,14 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
 console.log($rootScope.loggedUser);
 
   $scope.login = function () {
+    if (!$scope.user.username) {
+      check("Username");
+       return;
+     }
+     if (!$scope.user.password) {
+       check("Password");
+       return;
+     }
      UserService.login($scope.user).then(function(response){ 
    
       if(response.status >= 200 && response.status <= 399){

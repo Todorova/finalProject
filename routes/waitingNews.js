@@ -49,7 +49,12 @@ router.get('/', function (req, res, next) {
     
 router.post('/', function(req, res, next){
     var news = req.body;
-    console.log(news);
+
+    if(news.title == "" || news.text == ""){
+      res.status(422);
+      res.json({"info":"Unprocessable Entity"});
+    }
+
         var waitingCollection = req.db.get('waitingNews');
         waitingCollection.insert(news, function(err, dock){
           if (err) {
