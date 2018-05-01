@@ -34,9 +34,7 @@
                 <li>
                     <a href="#!/userInfo">Мy sportal</a>
                 </li>
-                <li>
-                    <a  ng-show = 'loggedUser.isAdmin' href="#!/admin">Админ</a>
-                </li>
+               
             </ul>
         </nav>
         <div  ng-controller="SearchController">
@@ -51,14 +49,11 @@
                 <a href="#!/user">
                     <img src="assets/login2.png" alt="">
                     <span ng-show="loggedUser.username">{{loggedUser.username}}</span>
-                </a>
-            </div>
-            <div id='login' >
-                <a href="">
                     <span ng-show="loggedUser.username">Изход</span>
-                    <span ng-show="loggedUser.username != ''">{{loggedUser.username}}</span>
+                    <a  ng-show = 'loggedUser.isAdmin' href="#!/admin">Админ</a>
                 </a>
             </div>
+           
     </header>
     <main>
         <div id='wrapper'>
