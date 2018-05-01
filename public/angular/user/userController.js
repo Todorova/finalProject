@@ -1,9 +1,16 @@
 app.controller('userController', function ($scope,$rootScope,$location, UserService) {
   $scope.user = {};
   $scope.theEmpty = "";
+  $scope.hideLogin = false;
 
 
   var empty = false;
+
+
+  $scope.hideFunc = function(){
+    console.log($scope.hideLogin);
+    $scope.hideLogin = !$scope.hideLogin;
+  }
 
   function check(element){
     empty = true;
@@ -15,7 +22,6 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
     return empty;
   }
 
-console.log($rootScope.loggedUser);
 
   $scope.login = function () {
     if (!$scope.user.username) {
@@ -49,9 +55,21 @@ console.log($rootScope.loggedUser);
       check("Password");
       return;
     }
+    if (!$scope.user.password2) {
+      check("Password");
+      return;
+    }
+
+if($scope.user.password != $scope.user.password2){
+  alert("Паролите не съвпасат");
+  return;
+}
+
+delete !$scope.user.password2;
+
     UserService.register($scope.user);
     $scope.user = {};
-    return false;
+    $scope.hideLogin = !$scope.hideLogin;
   }
   
 });

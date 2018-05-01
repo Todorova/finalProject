@@ -1,14 +1,24 @@
-
-        <p ng-show="loggedUser.isAdmin">{{loggedUser.username}}</p>
-        <form>
+        <div ng-show="!loggedUser">
+        <form ng-show="!hideLogin" class="myForm">
                 <input type="text" placeholder="username" ng-model="user.username">
                 <input type="password" placeholder="password" ng-model="user.password">
-                <button id="loginButton" ng-click="login()">Login</button>
-                <button ng-click="addNewUser()">Register</button>
+                <div>
+                <button class="sendData" ng-click="login()">Login</button>
+                <button class="sendData" ng-click="hideFunc()">Register</button>
+            </div>
             </form>
+
+            <form ng-show="hideLogin" class="myForm">
+                    <input type="text" placeholder="username" ng-model="user.username">
+                    <input type="password" placeholder="password" ng-model="user.password">
+                    <input type="text" placeholder="enter password again" ng-model="user.password2">
+                    <div><button class="sendData" ng-click="addNewUser()">Register</button></div>
+            </form>
+
             <div>
                 <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
             </div>
+        </div>
 
 
 

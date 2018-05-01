@@ -1,6 +1,7 @@
 <div class="userCss" ng-click="openNewsDiv('новини')">Добави новини</div>
 <div class="userCss" ng-click="openVideoDiv()">Добави видео</div>
 <div class="userCss" ng-click="openImgsDiv('снимки')">Добави снимки</div>
+<div class="userCss" ng-click="openMyNews()">Моите новини</div>
 
 <div ng-show="showNews || showImages" class="add">
     <p>Добавяне на {{type}}</p>
@@ -58,4 +59,8 @@
 <div>
     <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
 </div>
-<button  ng-show="showVideo || showImages || showNews" id="sendData" ng-click ="addNewNews()">Запиши</button>
+<button  ng-show="showVideo || showImages || showNews" class="sendData" ng-click ="addNewNews()">Запиши</button>
+
+<div ng-show="myNews">
+<p>mnogo neshta</p>
+</div>

@@ -322,7 +322,7 @@ img.aside {
     padding-top: 1em;
     color: white;
     display: inline-block;
-    width: 19%;
+    width: 14%;
     font-size: 1.5em;
 }
 
@@ -364,7 +364,7 @@ img.aside {
     margin-bottom: 1em;
 }
 
-#sendData{
+.sendData{
     border-radius: 8px;
     background-color: rgb(247, 121, 48);
     border: none;
@@ -375,8 +375,37 @@ img.aside {
     cursor: pointer;
 }
 
-#sendData:hover {
+.sendData:hover {
     background-color: #4CAF50;
     color: white;
 }
 
+.myForm input{
+    border: none;
+    border-bottom: 2px solid red;
+    color:rgb(247, 121, 48);
+    display: block;
+    margin: 1em auto;
+    border-radius: 8px;
+    font-size: 1.5em;
+    background: transparent;
+}
+
+.myForm input:focus{
+    border: 2px solid red;
+    outline: none;
+}
+
+::placeholder{
+    color: rgb(247, 121, 48);
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .myForm div{
+    display: inline-block;
+    margin-left: 21%;
+    margin-top: -1.5em;
+  }
