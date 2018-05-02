@@ -21,10 +21,9 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         return empty;
     }
 
-     /*if(!$rootScope.loggedUser){
-         console.log($rootScope.loggedUser)
+     if(!$rootScope.loggedUser){
         $location.path('/user');
-     }*/
+     }
 
     $scope.openNewsDiv = function (typeS) {
         $scope.type = typeS;
@@ -36,7 +35,6 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
     $scope.openImgsDiv = function (typeS) {
         $scope.type = typeS;
-        console.log()
         $scope.showImages = !$scope.showImages;
         $scope.showNews = false;
         $scope.showVideo = false;
@@ -115,11 +113,18 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
     }
 
+    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
+    .then(function (res) {
+       $scope.allNews = res.data;
+    });
+
     $scope.openMyNews = function(){
-        $scope.myNews= !$scope.myNews;
         $scope.showNews = false;
         $scope.showImages = false;
         $scope.showVideo = false;
+        $scope.myNews = true;
     }
+
+   
 
 });

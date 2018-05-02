@@ -2,13 +2,14 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
   $scope.user = {};
   $scope.theEmpty = "";
   $scope.hideLogin = false;
+  
 
 
   var empty = false;
 
 
   $scope.hideFunc = function(){
-    console.log($scope.hideLogin);
+   
     $scope.hideLogin = !$scope.hideLogin;
   }
 
@@ -36,7 +37,6 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
    
       if(response.status >= 200 && response.status <= 399){
       $rootScope.loggedUser = response.data;
-      console.log($rootScope.loggedUser);
       $location.path('/');
       }
     })
@@ -61,7 +61,7 @@ app.controller('userController', function ($scope,$rootScope,$location, UserServ
     }
 
 if($scope.user.password != $scope.user.password2){
-  alert("Паролите не съвпасат");
+  alert("Паролите не съвпадат");
   return;
 }
 

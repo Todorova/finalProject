@@ -326,6 +326,7 @@ img.aside {
     display: inline-block;
     width: 14%;
     font-size: 1.5em;
+    margin-bottom: 1em;
 }
 
 .userCss:hover{
@@ -375,6 +376,7 @@ img.aside {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    margin-left: 2em;
 }
 
 .sendData:hover {
@@ -398,9 +400,9 @@ img.aside {
     outline: none;
 }
 
-::placeholder{
+/*.myForm::placeholder{
     color: rgb(247, 121, 48);
-}
+}*/
 
 [placeholder]:focus::-webkit-input-placeholder {
     color: transparent;
@@ -428,3 +430,8 @@ img.aside {
     width: 15%;
 }
 
+.userNews{
+    width: 57%;
+    display: inline-block;
+    margin-top: 1px;
+}

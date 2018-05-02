@@ -1,7 +1,9 @@
+<div>
 <div class="userCss" ng-click="openNewsDiv('новини')">Добави новини</div>
 <div class="userCss" ng-click="openVideoDiv()">Добави видео</div>
 <div class="userCss" ng-click="openImgsDiv('снимки')">Добави снимки</div>
 <div class="userCss" ng-click="openMyNews()">Моите новини</div>
+</div>
 
 <div ng-show="showNews || showImages" class="add">
     <p>Добавяне на {{type}}</p>
@@ -61,6 +63,8 @@
 </div>
 <button  ng-show="showVideo || showImages || showNews" class="sendData" ng-click ="addNewNews()">Запиши</button>
 
-<div ng-show="myNews">
-<p>mnogo neshta</p>
+<div ng-show="myNews" class = "userNews">
+    <div ng-repeat="news in allNews">
+        <news news="news"></news>
+    </div>
 </div>

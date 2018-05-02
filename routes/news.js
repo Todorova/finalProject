@@ -111,6 +111,20 @@ router.get('/search/:title', function (req, res, next) {
     })
 })
 
+router.get('/userId/:id', function (req, res, next) {
+    var newsCollection = req.db.get("news");
+
+    newsCollection.find({creator:req.params.id}, { }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            res.status(200);
+            res.json(docs);
+        }
+    });
+});
+
 router.get('/:id', function (req, res, next) {
     var newsCollection = req.db.get("news");
 
