@@ -29,7 +29,7 @@
                     <a href="#!/photos">Фотогалерия</a>
                 </li>
                 <li>
-                    <a href="#!/statistics">Статистика</a>
+                    <a href="#!/statistics" >Статистика</a>
                 </li>
                 <li>
                     <a href="#!/userInfo">Мy sportal</a>
@@ -74,17 +74,32 @@
                         </ul>
                     </li>
                 </ul>
-
                 <section id='poster'>
                     <img src="assets/betfair2.gif" alt="">
                     <img src="assets/bet365.gif" alt="">
-
                 </section>
             </aside>
 
-            <section id='livescore'>
-                <p>live score</p>
-                <img src="assets/boy.png" alt="">
+            <section id='livescore' ng-controller="LivescoreController">
+                    <table >
+                            <thead>
+                                <caption>All matches today</caption>
+                                <tr>
+                                    <th>Hometeam</th>
+                                    <th>Awayteam</th>
+                                    <th>Time</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="livescore in livescores">
+                                <tr>
+                                    <td>{{livescore.match_hometeam_name}}</td>
+                                    <td>{{livescore.match_awayteam_name}}</td>
+                                    <td>{{livescore.match_time}}</td>
+                                    <td>{{livescore.match_hometeam_score}}:{{livescore.match_awayteam_score}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
             </section>
             <div ng-view></div>
 
@@ -109,7 +124,12 @@
     <script src='angular/userInfo/infoController.js'></script>
     <script src='angular/admin/adminController.js'></script>
     <script src='angular/statistics/StatisticsController.js'></script>
+    <script src='angular/livescore/LivescoreController.js'></script>
+   
+    <!-- Services -->
     <script src='angular/statistics/StatisticsService.js'></script>
+    <script src="angular/livescore/LivescoreService.js"></script>
+
 </body>
 
 </html>
