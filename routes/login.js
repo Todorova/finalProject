@@ -7,7 +7,6 @@ router.post('/', function (req, res, next) {
     var newUser = req.body;
 
     newUser.password = sha1(newUser.password);
-    console.log(newUser);
     var usersCollection = req.db.get('users');
     usersCollection.find(newUser, function (err, dock) {
       if(dock.length == 1){

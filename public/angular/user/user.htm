@@ -1,24 +1,33 @@
         <div ng-show="!loggedUser">
         <form ng-show="!hideLogin" class="myForm">
                 <input type="text" placeholder="username" ng-model="user.username">
-                <input type="password" placeholder="password" ng-model="user.password">
+                <input type="password" placeholder="password" ng-model="user.password"> 
                 <div>
-                <button class="sendData" ng-click="login()">Login</button>
-                <button class="sendData" ng-click="hideFunc()">Register</button>
+                <button class="sendData" ng-click="login()">Вход</button>
+                <button class="sendData" ng-click="hideFunc()">Регистриране</button>
             </div>
             </form>
 
             <form ng-show="hideLogin" class="myForm">
                     <input type="text" placeholder="username" ng-model="user.username">
                     <input type="password" placeholder="password" ng-model="user.password">
-                    <input type="text" placeholder="enter password again" ng-model="user.password2">
-                    <div><button class="sendData" ng-click="addNewUser()">Register</button></div>
+                    <input type="password" placeholder="enter password again" ng-model="user.password2">
+                    <div><button class="sendData" ng-click="addNewUser()">Регистриране</button></div>
             </form>
 
-            <div>
-                <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
-            </div>
+           
         </div>
 
+        <div ng-show="loggedUser" class="myForm">
+                <h2>Редактиране на профила</h2>
+                        <input type="text" placeholder="{{loggedUser.username}}" ng-model="user.username">
+                        <input type="password" placeholder="password" ng-model="user.password">
+                        <input type="password" placeholder="enter password again" ng-model="user.password2">
+                        <div><button class="sendData" ng-click="updateUserInfo()">Редактирай</button></div>
+        </div>
+
+        <div>
+                <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
+        </div>
 
 

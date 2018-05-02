@@ -395,22 +395,30 @@ img.aside {
     background: transparent;
 }
 
+.myForm h2{
+    display: inline-block;
+    color: rgb(247, 121, 48);
+    font-size: 3em;
+    margin-top: 0.5em;
+    margin-left: 4em;
+}
+
 .myForm input:focus{
     border: 2px solid red;
     outline: none;
 }
 
-/*.myForm::placeholder{
+.myForm::placeholder{
     color: rgb(247, 121, 48);
-}*/
+}
 
 [placeholder]:focus::-webkit-input-placeholder {
     color: transparent;
   }
 
-  .myForm div{
+.myForm div{
     display: inline-block;
-    margin-left: 21%;
+    margin-left: 17%;
     margin-top: -1.5em;
   }
 #statistic{
@@ -433,5 +441,13 @@ img.aside {
 .userNews{
     width: 57%;
     display: inline-block;
-    margin-top: 1px;
+    margin-top: 1em;
+}
+
+.userNews img, h1 {
+    margin-left: 11%;
+}
+
+.userNews div{
+    margin-left: 11%;
 }

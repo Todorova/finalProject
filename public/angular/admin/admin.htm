@@ -1,5 +1,7 @@
-<div ng-repeat="news in allNews">
+<div ng-repeat="news in allNews" class = "userNews">
 <news news="news"></news>
-<button ng-click="accept(news)">Одобри</button>
-<button ng-click="reject(news._id)">Отхвърли</button>
+<div>
+<button class="sendData" ng-click="accept(news)">Одобри</button>
+<button class="sendData"  ng-click="reject(news._id)">Отхвърли</button>
+</div>
 </div>

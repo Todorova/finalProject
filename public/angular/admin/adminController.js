@@ -1,5 +1,10 @@
 app.controller('adminController', function ($http, $scope, $rootScope, $location) {
 
+    console.log(!$rootScope.loggedUser);
+    if(!$rootScope.loggedUser){
+        $location.path('/user');
+     }
+
     $http.get(window.location.origin + '/waitingNews')
         .then(function (res) {
             $scope.allNews = res.data;
