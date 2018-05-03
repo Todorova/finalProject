@@ -2,7 +2,7 @@ app.controller('StatisticsController', function ($scope,$rootScope,$location, St
   $scope.country_id = 201;
   $scope.league_id = 407;
   var today = new Date();
-  var begin_year = new Date(today.getFullYear() + '-01-01');
+  var begin_year = new Date(today.getFullYear() + '-03-03');
   $scope.from_date = `${begin_year.getFullYear()}-${begin_year.getMonth()+1}-${begin_year.getDate()}`;
   $scope.to_date = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
 
