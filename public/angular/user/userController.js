@@ -22,6 +22,7 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
   }
 
 
+
   $scope.login = function () {
     if (!$scope.user.username) {
       check("Username");
@@ -72,7 +73,6 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
 
   $scope.updateUserInfo = function () {
 
-    console.log($rootScope.loggedUser);
     if (!!$scope.user.username == "" && !!$scope.user.password == "") {
       alert("Няма данни за редактиране");
       return;
@@ -94,8 +94,8 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
           $rootScope.loggedUser.password = $scope.user.password;
         }
       }  
-
-      $http.post(window.location.origin + '/users/update', $rootScope.LoggedUser)
+console.log($rootScope.loggedUser);
+      $http.post(window.location.origin + '/users/update', $rootScope.loggedUser)
       .then(function (res) {
           console.log(res);
       });

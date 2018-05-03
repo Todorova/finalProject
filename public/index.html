@@ -52,7 +52,7 @@
                 </a>
                     <a  ng-show = 'loggedUser.isAdmin' href="#!/admin">Админ</a>
                
-                <a>
+                <a ng-click="logout()">
                 <span ng-show="loggedUser.username">Изход</span>
             </a>
             </div>

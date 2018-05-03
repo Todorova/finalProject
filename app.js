@@ -50,14 +50,26 @@ app.use(function(req, res, next){
   next();
 });
 
+function checkLogin(req, res, next) {
+  console.log(req.session);
+  if ((req.session) && (req.session.user)) {
+    next();
+  } else {
+    res.json({ status: 'not authorized' });
+    res.status(401);
+  }
+}
+
+
 app.use('/', indexRouter);
-app.use('/users/login', loginRouter)
+app.use('/users/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
 // app.use('/search', searchRouter);
 app.use('/categories', categoriesRouter);
 app.use('/waitingNews', waitingRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

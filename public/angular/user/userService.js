@@ -9,7 +9,6 @@ app.service('UserService', function ($http) {
                 console.log(res);
             });
     }
-    //$http.post('/someUrl', data, config).then(successCallback, errorCallback);
 
     this.getUsers = function () {
         $http.get(window.location.origin + '/users')

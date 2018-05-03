@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var sha1 = require('sha1');
 
+router.post('/logout', function (req, res, next) {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 router.post('/register', function (req, res, next) {
   res.setHeader('content-type', 'application/json');
   var newUser = req.body;
@@ -21,12 +26,14 @@ router.post('/register', function (req, res, next) {
 });
 
 router.post('/update', function (req, res, next) {
+  
   res.setHeader('content-type', 'application/json');
   var newUser = req.body;
 
   newUser.password = sha1(newUser.password);
   var usersCollection = req.db.get('users');
-  usersCollection.save(newUser, function (err, dock) {
+  console.log(newUser);
+  usersCollection.save({newUser}, function (err, dock) {
     if (err) {
       res.status(500);
       res.json(err);

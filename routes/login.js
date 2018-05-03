@@ -10,6 +10,7 @@ router.post('/', function (req, res, next) {
     var usersCollection = req.db.get('users');
     usersCollection.find(newUser, function (err, dock) {
       if(dock.length == 1){
+        req.session.user = dock[0];
       res.json(dock[0]);
       }else{
         res.status(401);
