@@ -475,13 +475,17 @@ img.aside {
 }
 #statistic section{
     width: 15%;
-    border: 1px solid rgba(145, 141, 141, 0.842);
+    /* border: 1px solid rgba(145, 141, 141, 0.842); */
     border-radius: 5px;
 }
-table tr:nth-child(even){
+table tr:nth-child(odd) td{
+
     background-color: rgba(145, 141, 141, 0.842);
 }
+table tr:nth-child(even) td{
 
+    background-color: rgba(104, 31, 31, 0.842);
+}
 .userNews{
     width: 57%;
     display: inline-block;
