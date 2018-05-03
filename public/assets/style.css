@@ -28,29 +28,32 @@ a:hover{
 
 #searchInput{
     float: left;
-    margin-top: 15px; 
+    margin-top: 20px; 
     padding-left: 10px;
     margin-left: 10px;
-    
+    border: none;
+    border-bottom: 2px solid rgb(247, 121, 48);
+    color:gray;
+    border-radius: 3px;
 }
 #search a {
     background-color: #292828;
     /* float:  right; */
-    width: 60%;
+    width: 50%;
     margin-top: 30px;
+    border-radius: 3px;
 }
 #login{
     display: inline-block;
-    /* width: 60px; */
+   position: fixed;
     width:20%;
     float: left;
     display: inline-block;
-    box-sizing: border-box;
 }
 #login img{
-    width: 20px;
+    width: 7%;
     padding-left: 1%; 
-    margin-top: 11px; 
+    margin-top: 15px; 
 }
 
 #login span{
@@ -126,16 +129,18 @@ a:hover{
 
 #mainNews{
     width: 57%;
-    height: 17%;
-    /* border: 1px solid green; */
-    border: 2px inset black ;
+    border: 1px solid rgba(145, 141, 141, 0.842);
     float: left;
     display: inline-block;
+    background: #292828;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 img.aside {
     width: 18%;
     float: right;
-    border:1px inset black ;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 3%;
 }
 
 .selectedNews {
@@ -143,23 +148,24 @@ img.aside {
     float: left;
 }
 .selectedNews h1 {
-    /* background-image: url(nav1.jpeg) ; */
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-left: 3%;
 }
 .selectedNews img {
-    /* background-image: url(nav1.jpeg) ; */
    float: left;
    width: 100%;
-   border: 2px inset black ;
+   border-radius: 1%;
 }
 
-.latestNews {
+/* .latestNews {
     widows: 20%;
-}
+    border-radius: 3%;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+} */
 .aside:hover{
     border: 2px outset rgb(247, 121, 48);
+    border-radius: 3%;
 }
 
 #newsCategory{
@@ -167,17 +173,22 @@ img.aside {
     /* border: 1px solid green; */
     text-align: center;
     display: inline-block;
-    margin-left: 3px;
+    margin-left: 2px;
     background-color:  #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 #category{
     background-image:url("nav1.jpeg") ;
     display: inline-block;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     color: lightgrey;
     width: 100%;
-    border:3px inset black ;
+    border-bottom: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 7px;
 }
+
 .categories{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 30%;
@@ -189,8 +200,8 @@ img.aside {
 #newsCategory img{
     width: 97%;
     float: left;
-    border: 1px inset  black;
-
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
 }
 #newsCategory h1{
     width: 90%;
@@ -206,20 +217,23 @@ img.aside {
 #allNews{
     width: 57%;
     background-color:  #292828;
-    border:1px inset black ;
-    /* float: left; */
+    border: 1px solid rgba(145, 141, 141, 0.842);
     margin: auto;
     margin-left: 3px;
     display: inline-block;
+    border-radius: 5px;
 }
 .allNews img{
     width: 60%;
     float: left;
-    margin-top: 1%
+    margin-top: 1%;
+    border-radius: 1%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
 }
 .allNews h1{
     width: 35%;
     float: right;
+    margin-top: 2%;
 }
 
 .error{
@@ -233,40 +247,50 @@ img.aside {
 #allVideos{
     width: 57%;
     background-color:  #292828;
-    border:1px inset black ;
+    border: 1px solid rgba(145, 141, 141, 0.842);
     margin: auto;
     margin-left: 3px;
     display: inline-block;
+    border-radius: 5px;
 }
 .allVideos img{
     width: 60%;
     float: left;
-    margin-top: 1%
+    margin-top: 1%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
+    margin-left: 1%;
 }
 .allVideos h1{
     width: 35%;
     float: right;
     margin-top: 3%;
+    margin-right: 1%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #allPhotos{
     width: 57%;
     background-color:  #292828;
-    border:1px inset black ;
+    border: 1px solid rgba(145, 141, 141, 0.842);
     margin: auto;
     margin-left: 3px;
     display: inline-block;
+    border-radius: 5px;
 }
 .allPhotos img{
     width: 60%;
     float: left;
-    margin-top: 1%
+    margin-top: 1%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
+    margin-left: 1%;
 }
 .allPhotos h1{
     width: 35%;
     float: right;
     margin-top: 3%;
+    margin-right: 1%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -275,7 +299,8 @@ img.aside {
 #allCategories{
     width: 57%;
     background-color:  #292828;
-    border:1px inset black ;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
     margin: auto;
     margin-left: 3px;
     display: inline-block;
@@ -283,7 +308,10 @@ img.aside {
 .allCategories img{
     width: 60%;
     float: left;
-    margin-top: 1%
+    margin-top: 1%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
+    margin-left: 1%;
 }
 .allCategories h1{
     width: 35%;
@@ -295,6 +323,8 @@ img.aside {
 #newsPreview{
     width: 57%;
     background-color:  #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
     margin: auto;
     margin-left: 3px;
     display: inline-block;
@@ -314,10 +344,16 @@ img.aside {
 #newsPreview img {
     width: 85%;
     padding: 2% 6%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
+    margin-left: 10px;
 }
 #newsPreview video {
     width: 85%;
     padding: 2% 6%;
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%;
+    margin-left: 10px;
 }
 
 .userCss{
@@ -422,20 +458,28 @@ img.aside {
     margin-top: -1.5em;
   }
 #statistic{
-    border: 1px solid green;
     width: 57%;
     height: 150%;
     margin: auto;
     margin-left: 3px;
     display: inline-block; 
     background-color: #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
 }
 #statistic input{
     width: 15%;
     border-radius: 10%;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
 }
 #statistic section{
     width: 15%;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
+}
+table tr:nth-child(even){
+    background-color: rgba(145, 141, 141, 0.842);
 }
 
 .userNews{
