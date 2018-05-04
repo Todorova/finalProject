@@ -21,9 +21,9 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         return empty;
     }
 
-     if(!$rootScope.loggedUser){
+    if (!$rootScope.loggedUser) {
         $location.path('/user');
-     }
+    }
 
     $scope.openNewsDiv = function (typeS) {
         $scope.type = typeS;
@@ -32,6 +32,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.showVideo = false;
         $scope.myNews = false;
     }
+    $scope.openNewsDiv('новини')
 
     $scope.openImgsDiv = function (typeS) {
         $scope.type = typeS;
@@ -41,7 +42,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.myNews = false;
     }
 
-    $scope.openVideoDiv = function(){
+    $scope.openVideoDiv = function () {
         $scope.showVideo = !$scope.showVideo;
         $scope.showNews = false;
         $scope.showImages = false;
@@ -53,7 +54,6 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     });
 
     $scope.addNewNews = function () {
-
         var newNews = {};
 
         if (!$scope.news.title) {
@@ -64,14 +64,11 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             check("Текст");
             return;
         }
-
-    
-            if (!$scope.news.img) {
-                check("Снимка");
-                return;
-            }
-
-        if($scope.showVideo){
+        if (!$scope.news.img) {
+            check("Снимка");
+            return;
+        }
+        if ($scope.showVideo) {
             if (!$scope.news.video) {
                 check("Видео");
                 return;
@@ -80,10 +77,9 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             $scope.showImages = false;
         }
 
-
         newNews.title = $scope.news.title;
         newNews.text = $scope.news.text;
-
+        newNews.img = $scope.news.img;
 
         var arr = [];
         if ($scope.news.category1)
@@ -93,15 +89,14 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         if ($scope.news.category3)
             arr.push($scope.news.category3);
 
-      
 
-        if(!!$scope.news.video){
+
+        if (!!$scope.news.video) {
             newNews.video = $scope.news.video;
-        }else{
+        } else {
             newNews.video = "";
         }
 
-        
         newNews.categories = arr;
         newNews.dateCreated = new Date();
         newNews.creator = $rootScope.loggedUser._id;
@@ -114,17 +109,15 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     }
 
     $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
-    .then(function (res) {
-       $scope.allNews = res.data;
-    });
+        .then(function (res) {
+            $scope.allNews = res.data;
+        });
 
-    $scope.openMyNews = function(){
+    $scope.openMyNews = function () {
         $scope.showNews = false;
         $scope.showImages = false;
         $scope.showVideo = false;
         $scope.myNews = true;
     }
-
-   
 
 });
