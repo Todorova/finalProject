@@ -67,7 +67,7 @@
                 <ul ng-controller="MenuController">
                     <li ng-repeat="item in menu">
                         <a ng-click="selectMenu($index)" href="#!/categories/{{item.category}}">{{item.name}}</a>
-                        <ul ng-show="$index == selectedMenu">
+                        <ul id ='submenu' ng-show="$index == selectedMenu">
                             <li ng-repeat="submenu in item.children">
                                 <a href="#!/categories/{{submenu.category}}">{{submenu.name}} </a>
 

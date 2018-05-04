@@ -10,10 +10,12 @@ app.controller('NewsPreviewController', function ($scope, $rootScope, $routePara
 
     $scope.addComment = function () {
         $scope.newComment.newsId = $routeParams.id;
-        $http.post(window.location.origin + '/news/' + $routeParams.id + '/comment', $scope.newComment).then(function (response) {
-            $scope.comments.unshift(response.data)
-            $scope.newComment={}
-        })
+        if (($scope.newComment.username.trim().length > 0) && ($scope.newComment.text.trim().length > 0)) {
+            $http.post(window.location.origin + '/news/' + $routeParams.id + '/comment', $scope.newComment).then(function (response) {
+                $scope.comments.unshift(response.data);
+                $scope.newComment = {};
+            })
+        }
     }
 
     // newsId

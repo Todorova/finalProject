@@ -4,14 +4,15 @@
         <img ng-show="news.video == ''" ng-src="{{news.img}}" alt="">
         <video ng-show="news.video !== ''" src="{{news.video}}" width="500" controls></video>
         <p>{{news.text}}</p>
-        <div id='enterComment' >
-            <input type="text" name='name' placeholder="Вашето име" ng-model = 'newComment.username'>
-            <textarea name="comment" id="comment" cols="50" rows="7" placeholder="Вашият коментар" ng-model = 'newComment.text'></textarea>
+        <div id='enterComment'>
+            <input type="text" name='name' placeholder="Вашето име" ng-model='newComment.username'>
+            </br>
+            <textarea name="comment" id="comment" cols="50" rows="7" placeholder="Вашият коментар" ng-model='newComment.text'></textarea>
             <button ng-click="addComment()">ИЗПРАТИ</button>
         </div>
-        <div ng-repeat="comment in comments">
-            <p>{{comment.username}}</p>
-            <p>{{comment.date}}</p>
+        <div id='postedComment' ng-repeat="comment in comments">
+            <p><span>{{comment.date}}</span> <span> {{comment.username}}</span></p>
+            <!-- <p></p> -->
             <p>{{comment.text}}</p>
 
         </div>
