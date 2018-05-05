@@ -1,13 +1,9 @@
 app.controller('infoController', function ($http, $scope, $rootScope, $location, UserService) {
 
 
+
     $scope.news = {};
-    $scope.showNews = false;
-    $scope.showVideo = false;
-    $scope.showImages = false;
-    $scope.myNews = true;
     $scope.theEmpty = "";
-    $scope.type = "";
 
     var empty = false;
 
@@ -21,37 +17,26 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         return empty;
     }
 
-    if (!$rootScope.loggedUser) {
-        $location.path('/user');
-    }
+    /* if (!$rootScope.loggedUser) {
+         $location.path('/user');
+     }*/
 
-    $scope.openNewsDiv = function (typeS) {
-        $scope.type = typeS;
-        $scope.showNews = !$scope.showNews;
-        $scope.showImages = false;
-        $scope.showVideo = false;
-        $scope.myNews = false;
-    }
-    $scope.openNewsDiv('новини')
-
-    $scope.openImgsDiv = function (typeS) {
-        $scope.type = typeS;
-        $scope.showImages = !$scope.showImages;
-        $scope.showNews = false;
-        $scope.showVideo = false;
-        $scope.myNews = false;
-    }
-
-    $scope.openVideoDiv = function () {
-        $scope.showVideo = !$scope.showVideo;
-        $scope.showNews = false;
-        $scope.showImages = false;
-        $scope.myNews = false;
-    }
 
     $http.get(window.location.origin + '/categories').then(function (res) {
         $scope.categories = res.data;
     });
+
+    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
+    .then(function (res) {
+        $scope.allNews = res.data;
+        console.log($scope.allNews.length);
+        if($scope.allNews.length > 0){
+          $scope.myNews = true;
+        }else{
+          $scope.myNews = false;
+        }
+    });
+
 
     $scope.addNewNews = function () {
         var newNews = {};
@@ -68,13 +53,10 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             check("Снимка");
             return;
         }
-        if ($scope.showVideo) {
-            if (!$scope.news.video) {
-                check("Видео");
-                return;
-            }
-            $scope.showNews = false;
-            $scope.showImages = false;
+
+        if (!$scope.news.video) {
+            check("Видео");
+            return;
         }
 
         newNews.title = $scope.news.title;
@@ -104,20 +86,18 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.news = {};
         $http.post(window.location.origin + '/waitingNews', newNews)
             .then(function (res) {
+                alert("Изпратено");
             });
 
     }
 
-    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
-        .then(function (res) {
-            $scope.allNews = res.data;
-        });
-
+    
     $scope.openMyNews = function () {
-        $scope.showNews = false;
-        $scope.showImages = false;
-        $scope.showVideo = false;
         $scope.myNews = true;
+    }
+
+    $scope.openNewsDiv = function () {
+        $scope.myNews = false;
     }
 
 });

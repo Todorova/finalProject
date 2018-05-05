@@ -17,6 +17,7 @@ var waitingRouter = require('./routes/waitingNews');
 var menuRouter = require('./routes/menu');
 // var searchRouter = require('./routes/search');
 var categoriesRouter = require('./routes/categories');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -69,6 +70,7 @@ app.use('/menu', menuRouter);
 // app.use('/search', searchRouter);
 app.use('/categories', categoriesRouter);
 app.use('/waitingNews', waitingRouter);
+app.use('/comments', commentsRouter);
 
 
 // catch 404 and forward to error handler
