@@ -128,8 +128,8 @@ a:hover{
     width: 100%;
 }
 #livescore{
-    
     width: 25%;
+    /* height: 50%; */
     box-sizing: border-box;
     display: inline-block;
     float: right;
@@ -148,6 +148,14 @@ a:hover{
 #livescore table thead{
     font-weight: bolder;
     font-size: 1.2em;
+}
+#livescoreBtn{
+float: right;
+background-color: rgb(247, 121, 48);
+border-radius: 5px;
+border-color:rgb(247, 121, 48);
+margin-top: 15px;
+
 }
 #mainNews{
     width: 57%;

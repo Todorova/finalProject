@@ -4,10 +4,15 @@ app.controller('LivescoreController', function ($scope, $rootScope, $location, L
   $scope.from_date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
   $scope.to_date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
-  $scope.get = function () {
+  $scope.getPartialLivescore = function () {
+    LivescoreService.getLivescore($scope.from_date, $scope.to_date).then(response => {
+      $scope.livescores = response.data.reverse().slice(0,30);
+    }).catch(err => console.log(err));
+  }
+  $scope.getAllLivescore = function () {
     LivescoreService.getLivescore($scope.from_date, $scope.to_date).then(response => {
       $scope.livescores = response.data.reverse();
     }).catch(err => console.log(err));
   }
-  $scope.get();
+  $scope.getPartialLivescore();
 });
