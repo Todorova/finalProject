@@ -492,7 +492,7 @@ table tr:nth-child(even) td{
     margin-top: 1em;
 }
 
-.userNews img, h1 {
+.userNews img h1 {
     margin-left: 11%;
 }
 

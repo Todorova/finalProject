@@ -70,7 +70,8 @@ router.get('/comment', function (req, res, next) {
             res.json(docs);
         }
     })
-})
+});
+
 router.get('/videos', function (req, res, next) {
     var videosCollection = req.db.get('news');
 
@@ -166,7 +167,7 @@ router.post('/:id/comment', function(req, res, next) {
         }
 
     });
-})
+});
 
 router.post('/', function(req, res, next){
     var data = req.body;

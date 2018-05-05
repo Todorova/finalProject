@@ -100,6 +100,10 @@ console.log($rootScope.loggedUser);
           console.log(res);
       });
 
+      $scope.logout = function(){
+        $location.path('/');
+         $rootScope.loggedUser = null;
+     }
 
     }
 

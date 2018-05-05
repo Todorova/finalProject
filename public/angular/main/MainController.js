@@ -1,4 +1,5 @@
-app.controller('MainController', function ($scope, $http, $timeout) {
+app.controller('MainController', function ($scope, $http,$location, $timeout, $rootScope) {
+
 
     $http.get(window.location.origin + '/news/all').then(function (response) {
         $scope.allNews = response.data;
@@ -39,10 +40,6 @@ app.controller('MainController', function ($scope, $http, $timeout) {
 
     $scope.selectVisited = 0;
 
-    $scope.logout = function(){
-        $http.post(window.location.origin + '/users/logout', user).then(function(res){
-            
-        })
-    }
+   
 
 });

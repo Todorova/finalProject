@@ -27,13 +27,13 @@ router.post('/register', function (req, res, next) {
 
 router.post('/update', function (req, res, next) {
   
-  res.setHeader('content-type', 'application/json');
+   res.setHeader('content-type', 'application/json');
   var newUser = req.body;
 
   newUser.password = sha1(newUser.password);
   var usersCollection = req.db.get('users');
   console.log(newUser);
-  usersCollection.save({newUser}, function (err, dock) {
+  usersCollection.save(newUser, function (err, dock) {
     if (err) {
       res.status(500);
       res.json(err);
@@ -58,7 +58,6 @@ router.get('/', function (req, res, next) {
     }
   });
 
-  //  next();
 });
 
 module.exports = router;

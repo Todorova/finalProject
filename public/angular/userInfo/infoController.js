@@ -109,6 +109,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.news = {};
         $http.post(window.location.origin + '/waitingNews', newNews)
             .then(function (res) {
+                alert("Изпратено");
             });
 
     }

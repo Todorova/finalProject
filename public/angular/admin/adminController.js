@@ -1,6 +1,5 @@
 app.controller('adminController', function ($http, $scope, $rootScope, $location) {
 
-    console.log(!$rootScope.loggedUser);
     if(!$rootScope.loggedUser){
         $location.path('/user');
      }
@@ -49,5 +48,6 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
 
         $scope.allNews.splice(index, 1);
     }
+
 
 });

@@ -13,7 +13,7 @@
             <p>{{comment.username}}</p>
             <p>{{comment.date}}</p>
             <p>{{comment.text}}</p>
-
+            <button ng-show="loggedUser.isAdmin" ng-click="deleteComment(comment._id)">Изтрий коментара</button>
         </div>
     </section>
 </div>
