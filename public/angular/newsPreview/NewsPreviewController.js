@@ -20,23 +20,18 @@ app.controller('NewsPreviewController', function ($scope, $rootScope, $routePara
 
     
     $scope.deleteComment = function(id){
-        console.log(id);
 
         $http.delete(window.location.origin + '/comments/' + id)
         .then(function(res){
             console.log(res);
         });
 
-      /*  $http.get(window.location.origin + '/comments/' + id)
-        .then(function (res) { 
-            console.log(res.data);
-        });
-
+      
     var index = $scope.comments.findIndex(function (comment) {
         if (comment._id == id) return comment;
     });
 
-    $scope.comments.splice(index, 1);*/
+        $scope.comments.splice(index, 1);
     }
 
     // newsId

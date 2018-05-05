@@ -1,13 +1,10 @@
-<div id='myMenu'>
-        <!-- ng-click="openNewsDiv('новини')" -->
-<div class="userCss" ng-click="openNewsDiv('новини')" >Добави новини</div>
-<div class="userCss" ng-click="openVideoDiv()">Добави видео</div>
-<div class="userCss" ng-click="openImgsDiv('снимки')">Добави снимки</div>
+<div>
+<div class="userCss" ng-click="openNewsDiv()" >Добави новина</div>
 <div class="userCss" ng-click="openMyNews()">Моите новини</div>
 </div>
 
-<div ng-show="showNews || showImages" class="add">
-    <p>Добавяне на {{type}}</p>
+<div ng-show="!myNews" class="add">
+    <p>Добавяне на новина</p>
     <div>
         <h3>Публикуването на новини става само след преглед и одобрение от екипа на Footbal World.</h3>
         <div>
@@ -18,29 +15,6 @@
             <p>URL за снимка</p>
             <input ng-model=news.img type="text">
             <br/>
-            <select ng-model="news.category1">
-                <option ng-repeat="category in categories">{{category}}</option>
-            </select>
-            <select ng-model="news.category2">
-                    <option ng-repeat="category in categories">{{category}}</option>
-                </select>
-                <select ng-model="news.category3">
-                        <option ng-repeat="category in categories">{{category}}</option>
-                    </select>
-        </div>
-    </div>
-    
-</div>
-
-<div ng-show="showVideo" class="add">
-    <p>Добавяне на видео</p>
-    <div>
-        <h3>Публикуването на новини става само след преглед и одобрение от екипа на Footbal World.</h3>
-        <div>
-            <p >Заглавие:</p>
-            <input ng-model="news.title" type="text">
-            <p>Текст:</p>
-            <textarea ng-model="news.text" cols="80" rows="10"></textarea>
             <p>URL за видео</p>
             <input ng-model=news.video type="text">
             <br/>
@@ -56,15 +30,16 @@
         </div>
     </div>
 
-</div>
 
-
-<div>
-    <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
+    <div>
+        <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
+    </div>
+    <button class="sendData" ng-click ="addNewNews()">Запиши</button>
 </div>
-<button  ng-show="showVideo || showImages || showNews" class="sendData" ng-click ="addNewNews()">Запиши</button>
 
 <div ng-show="myNews" class = "userNews">
+        <p>Моите новини</p>
+        <h3 ng-show="!allNews.length">Няма ваши одобрени новини</h3>
     <div ng-repeat="news in allNews">
         <news news="news"></news>
     </div>
