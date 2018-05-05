@@ -36,13 +36,16 @@ a:hover{
     color:gray;
     border-radius: 3px;
 }
-#search a {
-    background-color: #292828;
-    /* float:  right; */
-    width: 50%;
-    margin-top: 30px;
+#search li {
+    background-color: #4e4c4c;
+    float:  right;
+    width: 30%;
+    margin-left: 30%;
     border-radius: 3px;
+    padding: 1%;
+    font-size: 0.7em;
 }
+
 #login{
     display: inline-block;
    position: fixed;
@@ -83,16 +86,26 @@ a:hover{
 }
 
 #menu > ul> li{
-    /* border: 1px solid green; */
     box-sizing: border-box;
     text-align: left;
     margin: auto;
     margin-bottom: 1px;
     width: 190px;
     border-radius: 3px;
-    padding: 5px; 
+    padding: 7px; 
     background-image: url("nav1.jpeg");
     display: inline-block;
+}
+#submenu{
+    margin-left: 15px;
+}
+#submenu li{
+     /* border-color: 1px solid green; */
+     background-color:  #292828;
+     border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
+     width: 85%;
+     padding: 1%;
 }
 #poster{
     /* border: 1px solid green; */
@@ -115,7 +128,7 @@ a:hover{
     width: 100%;
 }
 #livescore{
-    border: 1px inset  black;
+    
     width: 25%;
     box-sizing: border-box;
     display: inline-block;
@@ -125,8 +138,17 @@ a:hover{
     font-size: 0.7em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 1%;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
 }
-
+#livescore caption{
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+#livescore table thead{
+    font-weight: bolder;
+    font-size: 1.2em;
+}
 #mainNews{
     width: 57%;
     border: 1px solid rgba(145, 141, 141, 0.842);
@@ -266,7 +288,6 @@ img.aside {
     float: right;
     margin-top: 3%;
     margin-right: 1%;
-    color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #allPhotos{
@@ -360,23 +381,33 @@ img.aside {
     padding-top: 1em;
     color: white;
     display: inline-block;
-    width: 14%;
-    font-size: 1.5em;
+    width: 24%;
+   text-align: center;
+    font-size: 1.1em;
     margin-bottom: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 3px;
 }
 
 .userCss:hover{
     color:  rgb(247, 121, 48);
 }
-
-.add{
+#myMenu{
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius: 1%; 
+    width: 57%;
+    background-color: #292828;
+    margin-left: 17%;
+}
+.add {
     margin-top: 1em;
-    margin-left: 19%;
-    width: 54%;
+    margin-left: 17%;
+    width: 57%;
     border: 2px solid  rgb(247, 121, 48);
     border-radius: 8px;
+    background-color:#292828;
 }
-.add>p{
+.add > p{
     background: rgb(247, 121, 48);
     border: 2px solid rgb(247, 121, 48);
     border-radius: 0px 8px;
@@ -460,12 +491,14 @@ img.aside {
 #statistic{
     width: 57%;
     height: 150%;
-    margin: auto;
     margin-left: 3px;
     display: inline-block; 
     background-color: #292828;
     border: 1px solid rgba(145, 141, 141, 0.842);
     border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    
 }
 #statistic input{
     width: 15%;
@@ -478,13 +511,18 @@ img.aside {
     /* border: 1px solid rgba(145, 141, 141, 0.842); */
     border-radius: 5px;
 }
-table tr:nth-child(odd) td{
-
+table tbody:nth-child(odd){
     background-color: rgba(145, 141, 141, 0.842);
 }
-table tr:nth-child(even) td{
+tbody td{
+    width: 27%;
+    padding: 1%;
+}
 
-    background-color: rgba(104, 31, 31, 0.842);
+table thead{
+    background-color: rgba(145, 141, 141, 0.842);
+    padding: 1%;
+    font-weight: bolder;
 }
 .userNews{
     width: 57%;
@@ -498,4 +536,43 @@ table tr:nth-child(even) td{
 
 .userNews div{
     margin-left: 11%;
+}
+
+#enterComment{
+    width: 97%;
+    background-color: rgba(146, 145, 145, 0.842);
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-radius:5px;
+    margin: auto;
+    margin-top: 5px;
+}
+#enterComment input{
+    border-radius:5px;
+    margin-left:30%;
+    border-bottom-color:  rgb(247, 121, 48);
+}
+#enterComment textarea{
+    border-radius:5px;
+    margin-left:30%;
+   
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom-color:  rgb(247, 121, 48);
+}
+#enterComment button{
+    border-radius:5px;
+    margin-left:30%;
+    border-bottom-color: rgb(64, 141, 64);
+    /* background-color: rgb(64, 141, 64); */
+}
+#postedComment{
+    width: 97%;
+    background-color:  rgba(66, 61, 61, 0.842);
+    border: 2px solid rgba(146, 145, 145, 0.842);
+    border-radius:5px;
+    margin: auto;
+    margin-top: 5px;
+    
+
 }
