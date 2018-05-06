@@ -92,7 +92,7 @@
                                     <th>Score</th>
                                 </tr>
                             </thead>
-                            <tbody ng-repeat="livescore in livescores">
+                            <tbody ng-repeat="livescore in livescores ">
                                 <tr>
                                     <td>{{livescore.match_hometeam_name}}</td>
                                     <td>{{livescore.match_awayteam_name}}</td>
@@ -101,6 +101,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <button id = 'livescoreBtn' ng-click="getAllLivescore()">още...</button>
             </section>
             <div ng-view></div>
 
