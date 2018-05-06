@@ -6,7 +6,12 @@
 <div ng-show="!showNews">
     <div class="add">
         <p>Изтрий потребител</p>
-        
+        <div class="divs">
+                <input id="deleteUser" type="text" placeholder="Потребителско име">
+                <button ng-click="deleteUserFunc()" class="sendData">Намери</button>
+                <p ng-show="del">Изтрихте потребителя</p>
+            </div>
+
     </div>
 
 

@@ -21,6 +21,21 @@ router.post('/register', function (req, res, next) {
   });
 });
 
+router.delete('/delete/:name', function (req, res) {
+  var userCollection = req.db.get('users');
+
+  userCollection.find({ username: req.params.name }, {}, function (err, docs) {
+    if (err) {
+      res.status(500);
+      res.json({ err });
+    } else {
+      userCollection.remove({ username: req.params.name });
+      res.status(200);
+      res.json(docs[0]);
+    }
+  });
+});
+
 router.post('/:id/:isAdm', function (req, res, next) {
 
   var userCollection = req.db.get('users');

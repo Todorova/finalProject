@@ -59,7 +59,17 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
         $scope.allNews.splice(index, 1);
     }
 
-    //$scope.toAdmin;
+   
+
+    $scope.deleteUserFunc = function(){
+        var name = document.getElementById('deleteUser').value;
+        console.log(name);
+        $http.delete(window.location.origin + '/users/delete/' + name)
+        .then(function(res){
+            document.getElementById('toAdminUser').value = "";
+            $scope.del = true;
+        })
+    }
 
 $scope.toAdminFunc = function(){
 
