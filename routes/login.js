@@ -8,10 +8,11 @@ router.post('/', function (req, res, next) {
 
     newUser.password = sha1(newUser.password);
     var usersCollection = req.db.get('users');
-    usersCollection.find(newUser, function (err, dock) {
-      if(dock.length == 1){
-        req.session.user = dock[0];
-      res.json(dock[0]);
+    usersCollection.find(newUser, function (err, docs) {
+      if(docs.length == 1){
+        req.session.user = docs[0];
+        delete docs[0].password;
+      res.json(docs[0]);
       }else{
         res.status(401);
         res.json({ status: 'not authorized' });

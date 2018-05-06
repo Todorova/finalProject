@@ -36,6 +36,7 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
 
       if (response.status >= 200 && response.status <= 399) {
         $rootScope.loggedUser = response.data;
+        console.log($rootScope.loggedUser);
         $location.path('/');
       }
     })
