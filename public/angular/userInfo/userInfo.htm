@@ -19,12 +19,16 @@
             <input ng-model=news.video type="text">
             <br/>
             <select ng-model="news.category1">
+                    <option value="" selected disabled hidden>Изберете категория</option>
+                <!-- <option disabled selected="selected">Изберете категория</option> -->
                 <option ng-repeat="category in categories">{{category}}</option>
             </select>
             <select ng-model="news.category2">
+                    <option value="" selected disabled hidden>Изберете категория</option>
                     <option ng-repeat="category in categories">{{category}}</option>
                 </select>
                 <select ng-model="news.category3">
+                        <option value="" selected disabled hidden>Изберете категория</option>
                         <option ng-repeat="category in categories">{{category}}</option>
                     </select>
         </div>
