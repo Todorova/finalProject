@@ -4,6 +4,16 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
         $location.path('/user');
      }
 
+     $scope.showNews = true;
+
+     $scope.showNewsDiv = function(){
+        $scope.showNews = true;
+     }
+
+     $scope.showUsers = function(){
+        $scope.showNews = false;
+     }
+
     $http.get(window.location.origin + '/waitingNews')
         .then(function (res) {
             $scope.allNews = res.data;
@@ -49,5 +59,31 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
         $scope.allNews.splice(index, 1);
     }
 
+    //$scope.toAdmin;
+
+$scope.toAdminFunc = function(){
+
+    var name = document.getElementById('toAdminUser').value;
+    $http.get(window.location.origin + '/users/' + name).then(function(res){
+        document.getElementById('toAdminUser').value = "";
+        $scope.toAdmin = res.data[0];
+
+         console.log($scope.toAdmin.isAdmin);
+         if($scope.toAdmin.isAdmin){
+             document.getElementById('ime').querySelector("input").checked = "checked";
+         }else{
+             document.getElementById('ime').querySelector("input").checked = "";
+         }
+
+    });
+}
+
+$scope.changeIsAdmin = function(){
+    $scope.adm = document.getElementById('ime').querySelector("input").checked;
+    
+    $http.post(window.location.origin + '/users/' +$scope.toAdmin._id +"/"+$scope.adm)
+    .then(function(res){
+    });
+}
 
 });

@@ -17,9 +17,9 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         return empty;
     }
 
-    /* if (!$rootScope.loggedUser) {
+     if (!$rootScope.loggedUser) {
          $location.path('/user');
-     }*/
+     }
 
 
     $http.get(window.location.origin + '/categories').then(function (res) {

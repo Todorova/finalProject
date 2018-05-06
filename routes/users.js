@@ -2,10 +2,6 @@ var express = require('express');
 var router = express.Router();
 var sha1 = require('sha1');
 
-router.post('/logout', function (req, res, next) {
-  req.session.destroy();
-  res.redirect('/');
-});
 
 router.post('/register', function (req, res, next) {
   res.setHeader('content-type', 'application/json');
@@ -25,21 +21,16 @@ router.post('/register', function (req, res, next) {
   });
 });
 
-router.post('/update', function (req, res, next) {
-  
-   res.setHeader('content-type', 'application/json');
-  var newUser = req.body;
+router.post('/:id/:isAdm', function (req, res, next) {
 
-  newUser.password = sha1(newUser.password);
-  var usersCollection = req.db.get('users');
-  console.log(newUser);
-  usersCollection.save(newUser, function (err, dock) {
+  var userCollection = req.db.get('users');
+  userCollection.update({_id:req.params.id}, {$set: {isAdmin:req.params.isAdm}}, function(err, docs){
     if (err) {
       res.status(500);
       res.json(err);
     } else {
       res.status(200);
-      res.json(dock);
+      res.json(docs);
     }
   });
 });
@@ -55,6 +46,21 @@ router.get('/', function (req, res, next) {
     } else {
       res.status(200);
       res.json({ users });
+    }
+  });
+
+});
+
+router.get('/:name', function (req, res, next) {
+  var users = req.db.get('users');
+  users.find({username :req.params.name}, {}, function (err, docs) {
+
+    if (err) {
+      res.status(500);
+      res.json(err);
+    } else {
+      res.status(200);
+      res.json( docs);
     }
   });
 

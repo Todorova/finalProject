@@ -1,7 +1,42 @@
-<div ng-repeat="news in allNews" class = "userNews">
-<news news="news"></news>
 <div>
-<button class="sendData" ng-click="accept(news)">Одобри</button>
-<button class="sendData"  ng-click="reject(news._id)">Отхвърли</button>
+<div class="userCss" ng-click="showNewsDiv()">Чакащи новини</div>
+<div class="userCss" ng-click="showUsers()">Потребители</div>
 </div>
+
+<div ng-show="!showNews">
+    <div class="add">
+        <p>Изтрий потребител</p>
+        
+    </div>
+
+
+    <div class="add">
+    <p>Създай админ</p>
+    <div class="divs">
+            <input id="toAdminUser" type="text" placeholder="Потребителско име">
+            <button ng-click="toAdminFunc()" class="sendData">Намери</button>
+        </div>
+        
+
+        <div id="ime" class="divs" ng-show="toAdmin">  
+            <p>Име:  {{toAdmin.username}} </p>
+            <p style="display:inline">Админ:</p>
+            <input ng-click="changeIsAdmin()" type="checkbox">
+            <p ng-show="adm">Потребителят е админ</p>
+        </div>
+    </div>
+</div>
+
+<div ng-show="showNews">
+    <div ng-show="!allNews.length" class="userNews">
+        <h3>Няма чакащи новини</h3>
+    </div>
+    <div ng-repeat="news in allNews" class="userNews">
+
+        <news news="news"></news>
+        <div>
+            <button class="sendData" ng-click="accept(news)">Одобри</button>
+            <button class="sendData" ng-click="reject(news._id)">Отхвърли</button>
+        </div>
+    </div>
 </div>

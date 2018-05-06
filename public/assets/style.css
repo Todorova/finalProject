@@ -433,6 +433,29 @@ img.aside {
     margin-bottom: 1em;
 }
 
+.add input{
+    display: block;
+    margin-bottom: 1em;
+}
+
+.divs{
+    margin: 1em;
+    width: 45%;
+    display: inline-block;
+}
+
+.divs input {
+    display: inline-block;
+}
+
+.divs button {
+    display: block;
+}
+
+.divs p{
+    margin: 1em;
+}
+
 .userNews h3{
     color: white;
     font-size: 1.5em;
