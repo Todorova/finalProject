@@ -13,26 +13,19 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var newsRouter = require('./routes/news');
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
 var waitingRouter = require('./routes/waitingNews');
 var menuRouter = require('./routes/menu');
 // var searchRouter = require('./routes/search');
 var categoriesRouter = require('./routes/categories');
 var commentsRouter = require('./routes/comments');
+var helpers = require('./helpers');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-function checkLogin(req, res, next) {
-  if ((req.session) && (req.session.user)) {
-    next();
-  } else {
-    res.status(401);
-    res.json({ status: 'not authorized' });
-  }
-}
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -51,25 +44,18 @@ app.use(function(req, res, next){
   next();
 });
 
-function checkLogin(req, res, next) {
-  console.log(req.session);
-  if ((req.session) && (req.session.user)) {
-    next();
-  } else {
-    res.json({ status: 'not authorized' });
-    res.status(401);
-  }
-}
+
 
 
 app.use('/', indexRouter);
 app.use('/users/login', loginRouter);
-app.use('/users', usersRouter);
+app.use('/users/logout', logoutRouter)
+app.use('/users', helpers.checkLogin, usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
 // app.use('/search', searchRouter);
 app.use('/categories', categoriesRouter);
-app.use('/waitingNews', waitingRouter);
+app.use('/waitingNews', helpers.checkLogin, waitingRouter);
 app.use('/comments', commentsRouter);
 
 

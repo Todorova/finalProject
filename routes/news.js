@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var helpers = require('../helpers');
 
 /* GET news listing. */
 router.get('/all', function (req, res, next) {
@@ -169,8 +170,9 @@ router.post('/:id/comment', function(req, res, next) {
     });
 });
 
-router.post('/', function(req, res, next){
+router.post('/', helpers.checkLogin, function(req, res, next){
     var data = req.body;
+    data.dateCreated = new Date(data.dateCreated);
         var news = req.db.get('news');
         news.insert(data, function(err, dock){
           if (err) {

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sha1 = require('sha1');
+var helpers = require('../helpers');
 
 
 router.post('/register', function (req, res, next) {
@@ -66,7 +67,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.get('/:name', function (req, res, next) {
+router.get('/:name', helpers.checkLogin, function (req, res, next) {
   var users = req.db.get('users');
   users.find({username :req.params.name}, {}, function (err, docs) {
 

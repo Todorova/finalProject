@@ -45,15 +45,15 @@
                 </li>
             </ul>
         </div>
-        <div id='login'>
+        <div id='login' ng-controller="userController">
             <a href="#!/user">
                 <img src="assets/login2.png" alt="">
                 <span ng-show="loggedUser.username">{{loggedUser.username}}</span>
             </a>
             <a ng-show='loggedUser.isAdmin' href="#!/admin">Админ</a>
 
-            <a href="">
-                <span ng-show="loggedUser.username">Изход</span>
+            <a href="#!/">
+                <span ng-click = 'logout()' ng-show="loggedUser.username">Изход</span>
             </a>
         </div>
 

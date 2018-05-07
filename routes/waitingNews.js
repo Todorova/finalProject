@@ -54,7 +54,7 @@ router.post('/', function(req, res, next){
       res.status(422);
       res.json({"info":"Unprocessable Entity"});
     }
-
+    news.dateCreated = new Date();
         var waitingCollection = req.db.get('waitingNews');
         waitingCollection.insert(news, function(err, dock){
           if (err) {

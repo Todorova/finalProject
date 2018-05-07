@@ -1,4 +1,4 @@
-app.controller('userController', function ($scope,$http, $rootScope, $location, UserService) {
+app.controller('userController', function ($scope, $http, $rootScope, $location, UserService) {
   $scope.user = {};
   $scope.theEmpty = "";
   $scope.hideLogin = false;
@@ -33,9 +33,9 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
       return;
     }
     UserService.login($scope.user).then(function (response) {
-        $rootScope.loggedUser = response.data;
-        $location.path('/');
-      
+      $rootScope.loggedUser = response.data;
+      $location.path('/');
+
     })
       .catch(function (err) {
         alert("Грешно име или парола");
@@ -74,39 +74,35 @@ app.controller('userController', function ($scope,$http, $rootScope, $location, 
     if (!!$scope.user.username == "" && !!$scope.user.password == "") {
       alert("Няма данни за редактиране");
       return;
-    }else{
+    } else {
       if (!!$scope.user.username != "") {
         $rootScope.loggedUser.username = $scope.user.username;
       }
 
-      if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "" ){
+      if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "") {
         alert("Повтори паролата");
         return;
       }
 
-      if (!!$scope.user.password != "" && !!$scope.user.password2 != ""){
+      if (!!$scope.user.password != "" && !!$scope.user.password2 != "") {
         if ($scope.user.password != $scope.user.password2) {
           alert("Паролите не съвпадат");
           return;
-        }else{
+        } else {
           $rootScope.loggedUser.password = $scope.user.password;
         }
-      }  
-console.log($rootScope.loggedUser);
+      }
       $http.post(window.location.origin + '/users/update', $rootScope.loggedUser)
-      .then(function (res) {
+        .then(function (res) {
           console.log(res);
-      });
-
-      $scope.logout = function(){
-        $location.path('/');
-         $rootScope.loggedUser = null;
-     }
-
+        });
     }
 
   }
-
+  $scope.logout = function () {
+    $http.get(window.location.origin + '/users/logout');
+    $rootScope.loggedUser = {};
+  }
 
 
 });

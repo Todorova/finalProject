@@ -88,7 +88,6 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         }
 
         newNews.categories = arr;
-        newNews.dateCreated = new Date();
         newNews.creator = $rootScope.loggedUser.username;
         console.log( $rootScope.loggedUser.username)
         console.log( $rootScope.loggedUser)
