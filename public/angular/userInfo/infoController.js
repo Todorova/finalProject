@@ -23,6 +23,19 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.categories = res.data;
     });
 
+    $http.get(window.location.origin + '/menu').then(function(res){
+        $scope.categoryMenu = res.data.reduce(function(prev, curr) {
+            prev.push(curr.name);
+            if (curr.children) {
+                curr.children.forEach(function(children) {
+                    prev.push(children.name);
+                });
+            }
+            return prev;
+        }, []);
+        console.log($scope.categoryMenu)
+    })
+
     $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
         .then(function (res) {
             $scope.allNews = res.data;
