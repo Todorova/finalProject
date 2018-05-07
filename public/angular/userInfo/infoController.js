@@ -1,7 +1,4 @@
 app.controller('infoController', function ($http, $scope, $rootScope, $location, UserService) {
-
-
-
     $scope.news = {};
     $scope.theEmpty = "";
 
@@ -27,15 +24,14 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     });
 
     $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
-    .then(function (res) {
-        $scope.allNews = res.data;
-        console.log($scope.allNews.length);
-        if($scope.allNews.length > 0){
-          $scope.myNews = true;
-        }else{
-          $scope.myNews = false;
-        }
-    });
+        .then(function (res) {
+            $scope.allNews = res.data;
+            if ($scope.allNews.length > 0) {
+                $scope.myNews = true;
+            } else {
+                $scope.myNews = false;
+            }
+        });
 
 
     $scope.addNewNews = function () {
@@ -54,10 +50,10 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             return;
         }
 
-        if (!$scope.news.video) {
-            check("Видео");
-            return;
-        }
+        // if (!$scope.news.video) {
+        //     check("Видео");
+        //     return;
+        // }
 
         newNews.title = $scope.news.title;
         newNews.text = $scope.news.text;
@@ -72,8 +68,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             arr.push($scope.news.category3);
 
 
-
-        if (!!$scope.news.video) {
+        if ($scope.news.video) {
             newNews.video = $scope.news.video;
         } else {
             newNews.video = "";
@@ -81,7 +76,9 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
         newNews.categories = arr;
         newNews.dateCreated = new Date();
-        newNews.creator = $rootScope.loggedUser._id;
+        newNews.creator = $rootScope.loggedUser.username;
+        console.log( $rootScope.loggedUser.username)
+        console.log( $rootScope.loggedUser)
 
         $scope.news = {};
         $http.post(window.location.origin + '/waitingNews', newNews)
@@ -91,7 +88,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
     }
 
-    
+
     $scope.openMyNews = function () {
         $scope.myNews = true;
     }

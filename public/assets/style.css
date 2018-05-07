@@ -387,11 +387,13 @@ img.aside {
 
 .userCss{    
     padding-top: 0.5em;
-    color: white;
+    padding-bottom: 0.5em;
+    color:lightgrey;
     display: inline-block;
-    width: 27%;
+    width: 49%;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .userCss:hover{
@@ -400,14 +402,15 @@ img.aside {
 
 #myMenu{
     border: 2px solid rgba(66, 61, 61, 0.842);
-    border-radius: 1%; 
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     width: 57%;
     background-color: #292828;
     margin-left: 17%;
 }
 
 .add {
-    margin-top: 1em;
+    /* margin-top: 1em; */
     margin-left: 17%;
     width: 57%;
     border: 2px solid  rgb(247, 121, 48);
@@ -606,10 +609,10 @@ table thead{
     border-bottom-color:  rgb(247, 121, 48);
 }
 #enterComment button{
-    border-radius:5px;
+    border-radius: 5px;
     margin-left:30%;
-    border-bottom-color: rgb(64, 141, 64);
-    /* background-color: rgb(64, 141, 64); */
+    border-color: rgb(247, 121, 48);
+    background-color:rgb(247, 121, 48);
 }
 #postedComment{
     width: 97%;
@@ -618,6 +621,22 @@ table thead{
     border-radius:5px;
     margin: auto;
     margin-top: 5px;
+}
+#footer table tbody  {
+    width: 100%;
+    background-image: url("nav1.jpeg");
+    padding: 15px;
+    border-left: #4e4c4c;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: floralwhite;
+    font-size: 0.7em;
     
-
+}
+#footer table{
+    width: 100%;
+    margin-top: 5%;
+}
+#footer table p{
+    font-size: 0.5em;
+    padding-top: 10px;
 }
