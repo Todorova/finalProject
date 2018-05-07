@@ -4,14 +4,14 @@
         <option ng-repeat="country in countries" ng-value="{{country.country_id}}">{{country.country_name}}</option>
     </select>
 
-    <select ng-model="league_id">
+    <select ng-model="league_id" ng-change="getStatistic()">
         <option ng-repeat="league in leagues" ng-value="{{league.league_id}}">{{league.league_name}}</option>
     </select>
 
     <!-- <datepicker> -->
-    <input ng-model="from_date" type="text" />
-    <input ng-model="to_date" type="text" />
-    <button ng-click="getStatistic()">Get statistics</button>
+    <input ng-model="from_date" type="text" ng-change="getStatistic()" />
+    <input ng-model="to_date" type="text" ng-change="getStatistic()" />
+
     <!-- </datepicker> -->
 
     <table ng-show="statistics.length > 0">
