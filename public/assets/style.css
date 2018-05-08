@@ -1,25 +1,29 @@
 body{
     background-image: url("background.jpg");
-
 }
 #nav{
     width: 100%;
-    height: 70px;
-    /* border: 1px solid green; */
+    height: 10%;
     background-image: url("nav1.jpeg");
     position: fixed
 }
-ul{
+/* ul{
     list-style-type: none;
-}
+} */
 ul > li{
     float: left;
-    margin-top: 20px;
+    margin-top: 1%;
 }
+nav ul  li {
+    width: 9%;
+    text-align: center;
+}
+
 a{
     text-decoration: none;
     color: lightgrey;
-    padding: 15px;
+    padding-left: 10%;
+    /* margin-left: 10%; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 a:hover{
@@ -27,10 +31,11 @@ a:hover{
 }
 
 #searchInput{
+    width: 10%;
     float: left;
-    margin-top: 20px; 
-    padding-left: 10px;
-    margin-left: 10px;
+    margin-top: 1%; 
+    padding-left: 2%;
+    margin-left: 3%;
     border: none;
     border-bottom: 2px solid rgb(247, 121, 48);
     color:gray;
@@ -39,7 +44,7 @@ a:hover{
 #search li {
     background-color: #4e4c4c;
     float:  right;
-    width: 30%;
+    width: 25%;
     margin-left: 30%;
     border-radius: 3px;
     padding: 1%;
@@ -47,8 +52,7 @@ a:hover{
 }
 
 #login{
-    display: inline-block;
-   position: fixed;
+    position: fixed;
     width:20%;
     float: left;
     display: inline-block;
@@ -56,7 +60,7 @@ a:hover{
 #login img{
     width: 7%;
     padding-left: 1%; 
-    margin-top: 15px; 
+    margin-top: 3%; 
 }
 
 #login span{
@@ -64,18 +68,17 @@ a:hover{
 }
 
 #logo{
-    width: 130px;
+    width: 10%;
     float: left;
-    margin-right: 50px; 
-    margin-left: 185px;
+    margin-right: 1%; 
+    margin-left: 11%;
 }
 #wrapper{
     width: 93%;
-    /* border: 1px solid green; */
     box-sizing: border-box;
     display: inline-block;
     margin-left: 4%;
-    margin-top: 80px; 
+    margin-top: 5%; 
 }
 #menu{
     max-width: 17%;
@@ -90,27 +93,27 @@ a:hover{
     text-align: left;
     margin: auto;
     margin-bottom: 1px;
-    width: 190px;
+    width: 97%;
     border-radius: 3px;
     padding: 7px; 
     background-image: url("nav1.jpeg");
     display: inline-block;
 }
 #submenu{
-    margin-left: 15px;
+    margin-left: 3%;
 }
 #submenu li{
      /* border-color: 1px solid green; */
-     background-color:  #292828;
-     border: 1px solid rgba(145, 141, 141, 0.842);
+    background-color:  #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
     border-radius: 5px;
-     width: 85%;
-     padding: 1%;
+    width: 85%;
+    padding: 1%;
 }
 #poster{
     /* border: 1px solid green; */
     width: 97%;
-    margin-top: 50px;
+    margin-top: 25%;
     box-sizing: border-box;
     float: left;   
 }
@@ -129,7 +132,6 @@ a:hover{
 }
 #livescore{
     width: 25%;
-    /* height: 50%; */
     box-sizing: border-box;
     display: inline-block;
     float: right;
@@ -145,10 +147,24 @@ a:hover{
     font-weight: bolder;
     font-size: 1.2em;
 }
-#livescore table thead{
+#livescore table tbody td{
+    width: 40%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+#livescore table tbody:nth-child(odd){
+    background-color: rgba(145, 141, 141, 0.842);
+}
+#livescore table th{
     font-weight: bolder;
     font-size: 1.2em;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 17%;
 }
+
 #livescoreBtn{
 float: right;
 background-color: rgb(247, 121, 48);
@@ -165,6 +181,7 @@ margin-top: 15px;
     background: #292828;
     box-sizing: border-box;
     border-radius: 5px;
+    margin-left: 0.3%;
 }
 img.aside {
     width: 18%;
@@ -181,6 +198,7 @@ img.aside {
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-left: 3%;
+    font-size: 1em;
 }
 .selectedNews img {
    float: left;
@@ -188,11 +206,6 @@ img.aside {
    border-radius: 1%;
 }
 
-/* .latestNews {
-    widows: 20%;
-    border-radius: 3%;
-    border: 1px solid rgba(145, 141, 141, 0.842);
-} */
 .aside:hover{
     border: 2px outset rgb(247, 121, 48);
     border-radius: 3%;
@@ -200,10 +213,9 @@ img.aside {
 
 #newsCategory{
     width: 57%;
-    /* border: 1px solid green; */
     text-align: center;
     display: inline-block;
-    margin-left: 2px;
+    margin-left: 0.3%;
     background-color:  #292828;
     border: 1px solid rgba(145, 141, 141, 0.842);
     border-radius: 5px;
@@ -212,7 +224,6 @@ img.aside {
 #category{
     background-image:url("nav1.jpeg") ;
     display: inline-block;
-    /* box-sizing: border-box; */
     color: lightgrey;
     width: 100%;
     border-bottom: 1px solid rgba(145, 141, 141, 0.842);
@@ -238,6 +249,7 @@ img.aside {
     margin: auto;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 .sectionCategory{
     width: 50%;
@@ -249,9 +261,10 @@ img.aside {
     background-color:  #292828;
     border: 1px solid rgba(145, 141, 141, 0.842);
     margin: auto;
-    margin-left: 3px;
+    margin-left: 0.3%;
     display: inline-block;
     border-radius: 5px;
+    font-size: 1em;
 }
 .allNews img{
     width: 60%;
@@ -264,6 +277,8 @@ img.aside {
     width: 35%;
     float: right;
     margin-top: 2%;
+    font-size: 1em;
+
 }
 
 .error{
@@ -279,7 +294,7 @@ img.aside {
     background-color:  #292828;
     border: 1px solid rgba(145, 141, 141, 0.842);
     margin: auto;
-    margin-left: 3px;
+    margin-left: 0.3%;
     display: inline-block;
     border-radius: 5px;
 }
@@ -297,6 +312,7 @@ img.aside {
     margin-top: 3%;
     margin-right: 1%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 #allPhotos{
     width: 57%;
@@ -322,6 +338,7 @@ img.aside {
     margin-right: 1%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 
 
@@ -348,6 +365,7 @@ img.aside {
     margin-top: 3%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 #newsPreview{
     width: 57%;
@@ -363,6 +381,7 @@ img.aside {
     padding: 1%;
     color: rgb(247, 121, 48);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 #newsPreview p{
     padding: 1%;
@@ -544,23 +563,22 @@ img.aside {
     border-radius: 10%;
     border: 1px solid rgba(145, 141, 141, 0.842);
     border-radius: 5px;
+    margin: 1%
 }
 #statistic section{
     width: 15%;
-    /* border: 1px solid rgba(145, 141, 141, 0.842); */
     border-radius: 5px;
 }
-table tbody:nth-child(odd){
+#statistic table tbody:nth-child(odd){
     background-color: rgba(145, 141, 141, 0.842);
 }
-tbody td{
+#statistic table tbody td{
     width: 27%;
     padding: 1%;
 }
 
-table thead{
+#statistic table thead{
     background-color: rgba(145, 141, 141, 0.842);
-    padding: 1%;
     font-weight: bolder;
 }
 .userNews{
@@ -596,13 +614,13 @@ table thead{
 }
 #enterComment input{
     border-radius:5px;
-    margin-left:30%;
+    margin-left:22%;
     border-bottom-color:  rgb(247, 121, 48);
 }
 #enterComment textarea{
     border-radius:5px;
-    margin-left:30%;
-   
+    margin-left:22%;
+    width: 60%;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -610,7 +628,7 @@ table thead{
 }
 #enterComment button{
     border-radius: 5px;
-    margin-left:30%;
+    margin-left:22%;
     border-color: rgb(247, 121, 48);
     background-color:rgb(247, 121, 48);
 }
@@ -625,7 +643,7 @@ table thead{
 #footer table tbody  {
     width: 100%;
     background-image: url("nav1.jpeg");
-    padding: 15px;
+    padding: 3%;
     border-left: #4e4c4c;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: floralwhite;
@@ -636,7 +654,61 @@ table thead{
     width: 100%;
     margin-top: 5%;
 }
+#footer td{
+    width: 20%;
+}
 #footer table p{
     font-size: 0.5em;
     padding-top: 10px;
 }
+
+#mobileMenu {
+    display: block;
+    width: 20%;
+    clear: both;
+    display: none;
+}
+@media all and (max-width: 1109px) {
+    /* nav ul{
+        display: none;
+    } */
+    /* #mobileMenu {
+        display: block;
+        margin-left: 25%;
+        margin-bottom: 5px;
+    } */
+    ul li{
+        margin-top: 1%;
+        width: 4%;
+    }
+    
+    a{
+        font-size: 0.4em;
+    }
+    #searchInput{
+        position: fixed;
+        top: 10%;
+        left: 3%;
+    }
+    #category{
+        font-size: 0.4em; 
+    }
+
+    #livescore{
+        font-size: 0.4em;     
+    }
+    #livescore table tbody td{
+        width: 5%; 
+    }
+    #statistic{
+        font-size: 0.6em;  
+        color: floralwhite;
+    }
+   
+ }
+ @media all and (max-width: 600px) {
+    #livescore{
+        display: none;  
+       
+    }
+ }

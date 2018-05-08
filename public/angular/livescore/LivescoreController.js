@@ -6,7 +6,7 @@ app.controller('LivescoreController', function ($scope, $rootScope, $location, L
 
   $scope.getPartialLivescore = function () {
     LivescoreService.getLivescore($scope.from_date, $scope.to_date).then(response => {
-      $scope.livescores = response.data.reverse().slice(0,30);
+      $scope.livescores = response.data.reverse().slice(0,29);
     }).catch(err => console.log(err));
   }
   $scope.getAllLivescore = function () {

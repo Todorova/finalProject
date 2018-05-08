@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-</head>
+
+   </head>
 
 <body ng-app="app">
     <header id='nav'>
@@ -36,7 +37,26 @@
                 </li>
 
             </ul>
+            
         </nav>
+        <!-- <select id = 'mobileMenu'>
+                <option ng-controller = 'NewsController' >
+                        <a href="#/news">Новини</a>
+                    </option>
+                    <option ng-controller = 'VideoController'  value="">
+                        <a href="#/video">Видео</a>
+                    </option>
+                    <option value="">
+                        <a href="#!/photos">Фотогалерия</a>
+                    </option>
+                    <option value="">
+                        <a href="#!/statistics">Статистика</a>
+                    </option>
+                    <option value="">
+                        <a href="#!/userInfo">Мy sportal</a>
+                    </option>
+        </select>
+        -->
         <div ng-controller="SearchController">
             <input id='searchInput' type="text" autocomplete="off" placeholder="search" ng-keyup="search()" ng-model="searchText">
             <ul id='search'>
@@ -143,7 +163,8 @@
     <!-- Services -->
     <script src='angular/statistics/StatisticsService.js'></script>
     <script src="angular/livescore/LivescoreService.js"></script>
-
+    <!-- <script type='text/javascript' src='/static/path/to/angular.min.js'></script> -->
+    <!-- <script type='text/javascript' src='/node_modules/angular-media-queries/match-media.js'></script> -->
 </body>
 
 </html>

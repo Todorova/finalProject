@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "angular-media-queries": "^0.6.1",
     "angularjs-datepicker": "^2.1.23",
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
