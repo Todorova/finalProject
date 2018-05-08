@@ -65,6 +65,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
     delete $scope.user.password2;
 
     UserService.register($scope.user);
+    console.log($scope.user);
     $scope.user = {};
     $scope.hideLogin = !$scope.hideLogin;
   }

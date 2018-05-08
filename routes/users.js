@@ -1,25 +1,37 @@
 var express = require('express');
 var router = express.Router();
 var sha1 = require('sha1');
-var helpers = require('../helpers');
+//var helpers = require('../helpers');
 
 
 router.post('/register', function (req, res, next) {
-  res.setHeader('content-type', 'application/json');
   var newUser = req.body;
-
   newUser.password = sha1(newUser.password);
   newUser.isAdmin = false;
   var usersCollection = req.db.get('users');
-  usersCollection.insert(newUser, function (err, dock) {
+  usersCollection.find({ username: newUser.username }, {}, function (err, docs) {
     if (err) {
-      res.status(500);
-      res.json(err);
-    } else {
-      res.status(200);
-      res.json(dock);
+        res.status(500);
+        res.json(err);
     }
-  });
+
+    if (docs.length === 0) {
+        newUser.password = sha1(newUser.password);
+        newUser.isAdmin = false;
+        
+        usersCollection.insert(newUser, function (err, docs) {
+            if (err){
+              res.status(500);
+              res.json(err);
+            }
+            res.status(200);
+            res.json(docs);
+        });
+    } else {
+        res.status(400);
+        res.json({ message: "There is user with this username" });
+    }
+});
 });
 
 router.delete('/delete/:name', function (req, res) {
@@ -67,7 +79,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.get('/:name', helpers.checkLogin, function (req, res, next) {
+router.get('/:name', function (req, res, next) {
   var users = req.db.get('users');
   users.find({username :req.params.name}, {}, function (err, docs) {
 

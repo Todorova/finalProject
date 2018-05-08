@@ -50,12 +50,12 @@ app.use(function(req, res, next){
 app.use('/', indexRouter);
 app.use('/users/login', loginRouter);
 app.use('/users/logout', logoutRouter)
-app.use('/users', helpers.checkLogin, usersRouter);
+app.use('/users',  usersRouter);
 app.use('/news', newsRouter);
 app.use('/menu', menuRouter);
 // app.use('/search', searchRouter);
 app.use('/categories', categoriesRouter);
-app.use('/waitingNews', helpers.checkLogin, waitingRouter);
+app.use('/waitingNews', waitingRouter);
 app.use('/comments', commentsRouter);
 
 

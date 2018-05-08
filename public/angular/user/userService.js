@@ -5,6 +5,9 @@ app.service('UserService', function ($http) {
     this.register = function (user) {
         $http.post(window.location.origin + '/users/register', user)
             .then(function (res) {
+                console.log(res);
+            }).catch(function(res){
+                alert(res.data.message);
             });
     }
 
