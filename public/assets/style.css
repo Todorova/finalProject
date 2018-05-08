@@ -669,26 +669,32 @@ img.aside {
     display: none;
 }
 @media all and (max-width: 1109px) {
-    /* nav ul{
+    nav ul{
         display: none;
-    } */
-    /* #mobileMenu {
+    }
+    #mobileMenu {
         display: block;
         margin-left: 25%;
-        margin-bottom: 5px;
-    } */
-    ul li{
-        margin-top: 1%;
-        width: 4%;
-    }
-    
+        margin-top: -5px;
+        position: fixed;
+        top: 3%;
+        left: 1%;
+
+    } 
     a{
-        font-size: 0.4em;
+        font-size: 0.6em;
     }
     #searchInput{
         position: fixed;
-        top: 10%;
-        left: 3%;
+        top: 1%;
+        left: 50%;
+    }
+    #login{
+        position: fixed;
+        top: 0.1%;
+        left: 65%;
+        width: 35%
+
     }
     #category{
         font-size: 0.4em; 
@@ -711,4 +717,19 @@ img.aside {
         display: none;  
        
     }
+ }
+
+ @media all and (max-width: 650px) {
+
+    #searchInput{
+        /* position: fixed; */
+        top: 1.5%;
+        /* left: 50%; */
+    }
+    #login{
+        top: 1%;
+        width: 40%;
+    }
+   
+   
  }

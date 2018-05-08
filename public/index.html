@@ -39,24 +39,14 @@
             </ul>
             
         </nav>
-        <!-- <select id = 'mobileMenu'>
-                <option ng-controller = 'NewsController' >
-                        <a href="#/news">Новини</a>
-                    </option>
-                    <option ng-controller = 'VideoController'  value="">
-                        <a href="#/video">Видео</a>
-                    </option>
-                    <option value="">
-                        <a href="#!/photos">Фотогалерия</a>
-                    </option>
-                    <option value="">
-                        <a href="#!/statistics">Статистика</a>
-                    </option>
-                    <option value="">
-                        <a href="#!/userInfo">Мy sportal</a>
-                    </option>
+        <select ng-controller="MainController" ng-model="url" id = 'mobileMenu' ng-change="redirect()">
+                <option value="/news" >Новини</option>
+                <option value="/video" >Видео</option>
+                <option value="/photos">Фотогалерия</option>
+                <option value="/statistics">Статистика</option>
+                <option value="/userInfo">Мy sportal</option>
         </select>
-        -->
+       
         <div ng-controller="SearchController">
             <input id='searchInput' type="text" autocomplete="off" placeholder="search" ng-keyup="search()" ng-model="searchText">
             <ul id='search'>

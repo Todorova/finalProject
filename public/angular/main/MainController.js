@@ -40,6 +40,8 @@ app.controller('MainController', function ($scope, $http,$location, $timeout, $r
 
     $scope.selectVisited = 0;
 
-   
+   $scope.redirect = function() {
+       $location.url($scope.url);
+   }
 
 });
