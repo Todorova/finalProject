@@ -1,5 +1,13 @@
 app.controller('adminController', function ($http, $scope, $rootScope, $location) {
 
+    $rootScope.clouse = function () {
+        $rootScope.clouseAlertI = false;
+        $rootScope.clouseAlertW = false;
+        $rootScope.clouseAlertS = false;
+        $rootScope.clouseAlertD = false;
+        $rootScope.alertMessage = "";
+    }
+
     $http.get(window.location.origin + '/users').then(function (res) {
         $scope.users = res.data
     });
@@ -31,31 +39,45 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
 
         $http.post(window.location.origin + '/news', data)
             .then(function (res) {
-
+                $rootScope.clouseAlertS = true;
+                $rootScope.alertMessage = "Потвърдихте новината";
+            }).catch(function(res){
+                $rootScope.clouseAlertI = true;
+                $rootScope.alertMessage ="Неуспешно потвърждаване";
             });
 
         $http.delete(window.location.origin + '/waitingNews/' + id)
             .then(function (res) {
+                var index = $scope.allNews.findIndex(function (news) {
+                    if (news._id == id) return news;
+                });
+        
+                $scope.allNews.splice(index, 1);
+            }).catch(function(res){
+                $rootScope.clouseAlertI = true;
+                $rootScope.alertMessage ="Проблем с базата данни" + '\n'
+                +"Новината не е изтрита от чакащи за одобрение";
             });
-        var index = $scope.allNews.findIndex(function (news) {
-            if (news._id == id) return news;
-        });
-
-        $scope.allNews.splice(index, 1);
-
-
     }
 
     $scope.reject = function (id) {
         $http.delete(window.location.origin + '/waitingNews/' + id)
             .then(function (res) {
+                $rootScope.clouseAlertD = true;
+                $rootScope.alertMessage ="Успешно отхвърлихте новината";
+
+                var index = $scope.allNews.findIndex(function (news) {
+                    if (news._id == id) return news;
+                });
+        
+                $scope.allNews.splice(index, 1);
+            }).catch(function(res){
+                $rootScope.clouseAlertI = true;
+                $rootScope.alertMessage ="Проблем с базата данни" + '\n'
+                +"Новината не е изтрита от чакащи за одобрение";
             });
 
-        var index = $scope.allNews.findIndex(function (news) {
-            if (news._id == id) return news;
-        });
-
-        $scope.allNews.splice(index, 1);
+        
     }
 
 
@@ -66,9 +88,15 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
                 .then(function (res) {
                     $scope.userToDelete = "";
                     $scope.del = true;
-                })
+                    $rootScope.clouseAlertD = true;
+                    $rootScope.alertMessage ="Успешно изтрихте потребителя";
+                }).catch(function(res){
+                    $rootScope.clouseAlertI = true;
+                    $rootScope.alertMessage ="Неуспешно изтриване на потребителя";
+                });
         } else {
-            alert('Няма такова име')
+            $rootScope.clouseAlertW = true;
+            $rootScope.alertMessage = "Не съществува такова потребителско име";
         }
     }
 
@@ -79,16 +107,27 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
             $http.get(window.location.origin + '/users/' + username).then(function (res) {
                 $scope.toAdminUser = "";
                 $scope.toAdmin = res.data[0];
-                console.log($scope.toAdmin);
+
+            }).catch(function(res){
+                $rootScope.clouseAlertI = true;
+                $rootScope.alertMessage ="Проблем с базата данни";
+                return;
             });
         } else {
-            alert('Няма такова име')
+            $rootScope.clouseAlertW = true;
+            $rootScope.alertMessage = "Не съществува такова потребителско име";
         }
     }
 
     $scope.changeIsAdmin = function () {
         $http.post(window.location.origin + '/users/' + $scope.toAdmin._id + "/" + $scope.isAdminCheckbox)
             .then(function (res) {
+                $rootScope.clouseAlertS = true;
+                var position = $scope.isAdminCheckbox? "e админ":"не е админ";
+                $rootScope.alertMessage = "Потребителят вече " + position;
+            }).catch(function(res){
+                $rootScope.clouseAlertI = true;
+                $rootScope.alertMessage ="Неуспешна заявка";
             });
     }
 

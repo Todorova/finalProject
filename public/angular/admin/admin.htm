@@ -45,3 +45,21 @@
         </div>
     </div>
 </div>
+
+<div ng-show="clouseAlertI" class="alert info">
+    <span ng-click="clouse()"  class="closebtn">&times;</span>  
+    <strong>Съобщение!</strong> {{alertMessage}}
+</div>
+<div ng-show="clouseAlertS" class="alert success">
+    <span ng-click="clouse()"  class="closebtn">&times;</span>  
+    <strong>Успешно!</strong> {{alertMessage}}
+</div>
+<div ng-show="clouseAlertW " class="alert warning">
+    <span ng-click="clouse()" class="closebtn">&times;</span>  
+    <strong>Внимание!</strong> {{alertMessage}}
+  </div>
+  <div ng-show="clouseAlertD" class="alert">
+    <span ng-click="clouse()" class="closebtn">&times;</span>  
+    <strong>Изтриване!</strong> {{alertMessage}}
+  </div>
+  

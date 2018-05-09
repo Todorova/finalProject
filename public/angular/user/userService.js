@@ -6,6 +6,7 @@ app.service('UserService', function ($http, $rootScope) {
         $rootScope.clouseAlertI = false;
         $rootScope.clouseAlertW = false;
         $rootScope.clouseAlertS = false;
+        $rootScope.clouseAlertD = false;
         $rootScope.alertMessage = "";
     }
 

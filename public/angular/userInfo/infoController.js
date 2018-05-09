@@ -3,6 +3,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     $rootScope.clouseAlertI = false;
     $rootScope.clouseAlertW = false;
     $rootScope.clouseAlertS = false;
+    $rootScope.clouseAlertD = false;
     $rootScope.alertMessage = "";
 
     if (!$rootScope.loggedUser) {
@@ -115,10 +116,10 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     }
 
     $rootScope.clouse = function () {
-        console.log("func");
         $rootScope.clouseAlertI = false;
         $rootScope.clouseAlertW = false;
         $rootScope.clouseAlertS = false;
+        $rootScope.clouseAlertD = false;
         $rootScope.alertMessage = "";
     }
 });
