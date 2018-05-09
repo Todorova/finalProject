@@ -113,10 +113,10 @@ router.get('/search/:title', function (req, res, next) {
     })
 })
 
-router.get('/userId/:id', function (req, res, next) {
+router.get('/userId/:name', function (req, res, next) {
     var newsCollection = req.db.get("news");
 
-    newsCollection.find({creator:req.params.id}, { }, function (err, docs) {
+    newsCollection.find({creator:req.params.name}, { }, function (err, docs) {
         if (err) {
             res.status(500);
             res.json({ err });

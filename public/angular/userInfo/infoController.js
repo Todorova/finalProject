@@ -36,7 +36,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         console.log($scope.categoryMenu)
     })
 
-    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser._id)
+    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser.username)
         .then(function (res) {
             $scope.allNews = res.data;
             if ($scope.allNews.length > 0) {

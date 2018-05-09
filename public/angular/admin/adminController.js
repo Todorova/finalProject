@@ -78,11 +78,13 @@ $scope.toAdminFunc = function(){
         document.getElementById('toAdminUser').value = "";
         $scope.toAdmin = res.data[0];
 
-         console.log($scope.toAdmin.isAdmin);
-         if($scope.toAdmin.isAdmin){
-             document.getElementById('ime').querySelector("input").checked = "checked";
-         }else{
-             document.getElementById('ime').querySelector("input").checked = "";
+         
+         if($scope.toAdmin.isAdmin == true){
+            console.log($scope.toAdmin.isAdmin);
+             document.getElementById('inputId').checked = true;
+         }
+         if($scope.toAdmin.isAdmin == false){
+             document.getElementById('inputId').checked = false;
          }
 
     });
