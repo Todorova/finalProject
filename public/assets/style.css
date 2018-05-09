@@ -724,7 +724,8 @@ img.aside {
 
 .alert {
     position: fixed;
-    display: inline-block;
+    display: block;
+    width: 33%;
     padding: 20px;
     background-color: #f44336;
     color: white;
@@ -737,6 +738,7 @@ img.aside {
 
 .alert.success {background-color: #4CAF50;}
 .alert.warning {background-color: #ff9800;}
+.alert.info {background-color: #2196F3;}
 
 .closebtn {
     margin-left: 15px;

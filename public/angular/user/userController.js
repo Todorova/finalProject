@@ -1,35 +1,21 @@
 app.controller('userController', function ($scope, $http, $rootScope, $location, UserService) {
   $scope.user = {};
-  $scope.theEmpty = "";
   $scope.hideLogin = $rootScope.loggedUser;
-
-  var empty = false;
-
 
   $scope.hideFunc = function () {
 
     $scope.hideLogin = !$scope.hideLogin;
   }
 
-  function check(element) {
-    empty = true;
-    $scope.theEmpty = element;
-    $scope.isEmpty();
-  }
-
-  $scope.isEmpty = function () {
-    return empty;
-  }
-
-
-
   $scope.login = function () {
     if (!$scope.user.username ||$scope.user.username.trim() == "" ) {
-      check("потребителско име");
+      $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Попълването на поле потребителско име е задължително";
       return;
     }
     if (!$scope.user.password ||$scope.user.password.trim() == "") {
-      check("парола");
+      $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Попълването на поле парола е задължително";
       return;
     }
     UserService.login($scope.user).then(function (response) {
@@ -38,27 +24,36 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
     })
       .catch(function (err) {
-        alert("Грешно име или парола");
+        $rootScope.clouseAlertI = true;
+        $rootScope.alertMessage ="Грешно име или парола";
       });
 
   }
 
   $scope.addNewUser = function () {
-    if (!$scope.user.username ||$scope.user.username.trim() == "" || $scope.user.password.length <3) {
-      check("потребителско име");
+   
+    if (!$scope.user.username ||$scope.user.username.trim() == "" || $scope.user.username.length <3) {
+      $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Попълването на поле потребителско име е задължително" + '\n' + 
+      "Потребителско име трябва да е с поне 3 символа";
       return;
     }
     if (!$scope.user.password ||$scope.user.password.trim() == "" || $scope.user.password.length <8 ) {
-      check("парола");
+      $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Попълването на поле потребителско име е задължително" + '\n' + 
+      "Паролата трябва да е с поне 8 символа";
       return;
     }
     if (!$scope.user.password2 ||$scope.user.password2.trim() == "" || $scope.user.password2.length <8 ) {
-      check("парола");
+      $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Попълването на поле потребителско име е задължително" + '\n' + 
+      "Паролата трябва да е с поне 8 символа";
       return;
     }
 
     if ($scope.user.password != $scope.user.password2) {
-      alert("Паролите не съвпадат");
+      $rootScope.clouseAlertI = true;
+      $rootScope.alertMessage ="Паролите не съвпадат";
       return;
     }
 
@@ -73,17 +68,20 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
 
     if (!!$scope.user.password == "") {
-      alert("Няма данни за редактиране");
+      $rootScope.clouseAlertI = true;
+      $rootScope.alertMessage ="Няма данни за редактиране";
       return;
     } else {
 
       if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "") {
-        alert("Повтори паролата");
+        $rootScope.clouseAlertW = true;
+      $rootScope.alertMessage = "Повтори паролата";
         return;
       }
       if (!!$scope.user.password != "" && !!$scope.user.password2 != "") {
         if ($scope.user.password != $scope.user.password2) {
-          alert("Паролите не съвпадат");
+          $rootScope.clouseAlertI = true;
+          $rootScope.alertMessage ="Паролите не съвпадат";
           return;
         } else {
           $rootScope.loggedUser.password = $scope.user.password;

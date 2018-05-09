@@ -1,13 +1,22 @@
-app.service('UserService', function ($http) {
+app.service('UserService', function ($http, $rootScope) {
 
     var users = [];
+
+    $rootScope.clouse = function () {
+        $rootScope.clouseAlertI = false;
+        $rootScope.clouseAlertW = false;
+        $rootScope.clouseAlertS = false;
+        $rootScope.alertMessage = "";
+    }
 
     this.register = function (user) {
         $http.post(window.location.origin + '/users/register', user)
             .then(function (res) {
-                console.log(res);
+                $rootScope.clouseAlertS = true;
+                $rootScope.alertMessage = "Регистрирахте се";
             }).catch(function(res){
-                alert(res.data.message);
+              $rootScope.clouseAlertI = true;
+              $rootScope.alertMessage = res.data.message;
             });
     }
 
@@ -25,9 +34,11 @@ app.service('UserService', function ($http) {
     this.update = function(newData){
         $http.put(window.location.origin + '/users/update', newData)
         .then(function (res) {
-          console.log(res);
+            $rootScope.clouseAlertS = true;
+            $rootScope.alertMessage = "Редактирахте профила си";
         }).catch(function(res){
-            console.log(res);
+            $rootScope.clouseAlertI = true;
+              $rootScope.alertMessage ="Не успяхте да редактирате профила си";
         });
     }
 

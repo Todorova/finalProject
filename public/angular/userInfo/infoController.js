@@ -1,6 +1,6 @@
 app.controller('infoController', function ($http, $scope, $rootScope, $location, $routeParams, UserService) {
     $scope.news = {};
-    $scope.theEmpty = "";
+    $rootScope.clouseAlertI = false;
     $rootScope.clouseAlertW = false;
     $rootScope.clouseAlertS = false;
     $rootScope.alertMessage = "";
@@ -43,19 +43,16 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         var newNews = {};
 
         if (!$scope.news.title) {
-            console.log("bfdfb");
             $rootScope.clouseAlertW = true;
             $rootScope.alertMessage = "Попълването на поле заглавие е задължително";
             return;
         }
         if (!$scope.news.text) {
-            console.log("bfdfb");
             $rootScope.clouseAlertW = true;
             $rootScope.alertMessage = "Попълването на поле текст е задължително";
             return;
         }
         if (!$scope.news.img) {
-            console.log("bfdfb");
             $rootScope.clouseAlertW = true;
             $rootScope.alertMessage = "Попълването на поле снимки е задължително";
             return;
@@ -87,14 +84,12 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         if ($scope.news._id) {
             $http.put(window.location.origin + '/waitingNews/' + $scope.news._id, newNews)
                 .then(function (res) {
-                    // alert("Изпратено updated");
                     $rootScope.clouseAlertS = true;
                     $rootScope.alertMessage = "Новината е изпратена за одобрение";
                 });
         } else {
             $http.post(window.location.origin + '/waitingNews', newNews)
                 .then(function (res) {
-                    // alert("Изпратено");
                     $rootScope.clouseAlertS = true;
                     $rootScope.alertMessage = "Новината е изпратена за одобрение";
                 });
@@ -120,6 +115,8 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     }
 
     $rootScope.clouse = function () {
+        console.log("func");
+        $rootScope.clouseAlertI = false;
         $rootScope.clouseAlertW = false;
         $rootScope.clouseAlertS = false;
         $rootScope.alertMessage = "";
