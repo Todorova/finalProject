@@ -412,7 +412,6 @@ img.aside {
 }
 
 .userCss{    
-    /* border: 2px solid rgba(66, 61, 61, 0.842); */
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     color:lightgrey;
@@ -764,12 +763,47 @@ img.aside {
         font-size: 0.6em;  
         color: floralwhite;
     }
+
+    .userNews img {
+        width: 92%;
+        float: left;
+        margin: 3%;
+    }
+
+    .add textarea{
+        width: 98%;
+    }
+
+    .myForm h2{
+    font-size: 2.5em;
+    margin-left: 2em;
+    }
    
  }
  @media all and (max-width: 600px) {
     #livescore{
         display: none;  
        
+    }
+
+    .userNews {
+        width: 82%;
+    }
+
+    .add{
+        width: 81%;
+    }
+
+    .add select{
+        display: block;
+    }
+
+    #adminMenu, .myForm, #myMenu{
+        width: 81%;
+    }
+
+    .myForm h2{
+        margin-left: 0.5em;
     }
  }
 
@@ -785,5 +819,8 @@ img.aside {
         width: 40%;
     }
    
-   
+    .myForm h2 {
+        font-size: 1.7em;
+        margin-left: 0.5em;
+    }
  }
