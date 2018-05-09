@@ -1,32 +1,24 @@
 app.controller('infoController', function ($http, $scope, $rootScope, $location, $routeParams, UserService) {
     $scope.news = {};
     $scope.theEmpty = "";
+    $rootScope.clouseAlertW = false;
+    $rootScope.clouseAlertS = false;
+    $rootScope.alertMessage = "";
 
-    var empty = false;
-
-    function check(element) {
-        empty = true;
-        $scope.theEmpty = element;
-        $scope.isEmpty();
-    }
-
-    $scope.isEmpty = function () {
-        return empty;
-    }
     if (!$rootScope.loggedUser) {
-         $location.path('/user');
-     }
+        $location.path('/user');
+    }
 
 
     $http.get(window.location.origin + '/categories').then(function (res) {
         $scope.categories = res.data;
     });
 
-    $http.get(window.location.origin + '/menu').then(function(res){
-        $scope.categoryMenu = res.data.reduce(function(prev, curr) {
+    $http.get(window.location.origin + '/menu').then(function (res) {
+        $scope.categoryMenu = res.data.reduce(function (prev, curr) {
             prev.push(curr.name);
             if (curr.children) {
-                curr.children.forEach(function(children) {
+                curr.children.forEach(function (children) {
                     prev.push(children.name);
                 });
             }
@@ -44,29 +36,30 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
                     $scope.myNews = false;
                 }
             });
-        }
+    }
 
 
     $scope.addNewNews = function () {
         var newNews = {};
 
         if (!$scope.news.title) {
-            check("Заглавие");
+            console.log("bfdfb");
+            $rootScope.clouseAlertW = true;
+            $rootScope.alertMessage = "Попълването на поле заглавие е задължително";
             return;
         }
         if (!$scope.news.text) {
-            check("Текст");
+            console.log("bfdfb");
+            $rootScope.clouseAlertW = true;
+            $rootScope.alertMessage = "Попълването на поле текст е задължително";
             return;
         }
         if (!$scope.news.img) {
-            check("Снимка");
+            console.log("bfdfb");
+            $rootScope.clouseAlertW = true;
+            $rootScope.alertMessage = "Попълването на поле снимки е задължително";
             return;
         }
-
-        // if (!$scope.news.video) {
-        //     check("Видео");
-        //     return;
-        // }
 
         newNews.title = $scope.news.title;
         newNews.text = $scope.news.text;
@@ -90,20 +83,24 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         newNews.categories = arr;
         newNews.creator = $rootScope.loggedUser.username;
 
-        
+
         if ($scope.news._id) {
-            $http.put(window.location.origin + '/waitingNews/'+$scope.news._id, newNews)
+            $http.put(window.location.origin + '/waitingNews/' + $scope.news._id, newNews)
                 .then(function (res) {
-                    alert("Изпратено updated");
+                    // alert("Изпратено updated");
+                    $rootScope.clouseAlertS = true;
+                    $rootScope.alertMessage = "Новината е изпратена за одобрение";
                 });
         } else {
             $http.post(window.location.origin + '/waitingNews', newNews)
                 .then(function (res) {
-                    alert("Изпратено");
+                    // alert("Изпратено");
+                    $rootScope.clouseAlertS = true;
+                    $rootScope.alertMessage = "Новината е изпратена за одобрение";
                 });
         }
         $scope.news = {};
-        
+
     }
 
 
@@ -120,5 +117,11 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             $scope.news = res.data[0];
             $scope.myNews = false;
         });
+    }
+
+    $rootScope.clouse = function () {
+        $rootScope.clouseAlertW = false;
+        $rootScope.clouseAlertS = false;
+        $rootScope.alertMessage = "";
     }
 });
