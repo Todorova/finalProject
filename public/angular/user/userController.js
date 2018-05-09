@@ -44,7 +44,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
   }
 
   $scope.addNewUser = function () {
-    if (!$scope.user.username ||$scope.user.username.trim() == "") {
+    if (!$scope.user.username ||$scope.user.username.trim() == "" || $scope.user.password.length <3) {
       check("потребителско име");
       return;
     }
