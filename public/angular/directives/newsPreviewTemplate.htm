@@ -1,4 +1,11 @@
 
 
-<a href="#!/news/{{news._id}}"> <img ng-src="{{news.img}}" alt=""></a>
-<a href="#!/news/{{news._id}}"> <h1>{{news.title}}</h1></a>
+<a href="#!/news/{{news._id}}" ng-show="waiting != true "> 
+    <img ng-src="{{news.img}}" alt="">
+    <h1>{{news.title}} WN: {{waiting}}</h1>
+</a>
+
+<a href="#!/waitingNews/{{news._id}}" ng-show="waiting == true"> 
+    <img ng-src="{{news.img}}" alt="">
+    <h1>{{news.title}}</h1>
+</a>

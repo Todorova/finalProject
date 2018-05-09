@@ -1,4 +1,4 @@
-<div>
+<div id = 'adminMenu'>
 <div class="userCss" ng-click="showNewsDiv()">Чакащи новини</div>
 <div class="userCss" ng-click="showUsers()">Потребители</div>
 </div>
@@ -7,7 +7,7 @@
     <div class="add">
         <p>Изтрий потребител</p>
         <div class="divs">
-                <input id="deleteUser" type="text" placeholder="Потребителско име">
+                <input id="deleteUser" ng-model="userToDelete" type="text" placeholder="Потребителско име">
                 <button ng-click="deleteUserFunc()" class="sendData">Намери</button>
                 <p ng-show="del">Изтрихте потребителя</p>
             </div>
@@ -18,7 +18,7 @@
     <div class="add">
     <p>Създай админ</p>
     <div class="divs">
-            <input id="toAdminUser" type="text" placeholder="Потребителско име">
+            <input id="toAdminUser" ng-model="toAdminUser" type="text" placeholder="Потребителско име">
             <button ng-click="toAdminFunc()" class="sendData">Намери</button>
         </div>
         
@@ -26,7 +26,7 @@
         <div id="ime" class="divs" ng-show="toAdmin">  
             <p>Име:  {{toAdmin.username}} </p>
             <p style="display:inline">Админ:</p>
-            <input id="inputId" ng-click="changeIsAdmin()" type="checkbox">
+            <input id="inputId" ng-model="isAdminCheckbox" ng-checked="toAdmin.isAdmin" ng-click="changeIsAdmin()" type="checkbox">
             <p ng-show="adm">Потребителят е админ</p>
         </div>
     </div>
@@ -38,7 +38,7 @@
     </div>
     <div ng-repeat="news in allNews" class="userNews">
 
-        <news news="news"></news>
+        <news news="news" waiting=true></news>
         <div>
             <button class="sendData" ng-click="accept(news)">Одобри</button>
             <button class="sendData" ng-click="reject(news._id)">Отхвърли</button>

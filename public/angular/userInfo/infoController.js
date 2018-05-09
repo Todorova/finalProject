@@ -1,4 +1,4 @@
-app.controller('infoController', function ($http, $scope, $rootScope, $location, UserService) {
+app.controller('infoController', function ($http, $scope, $rootScope, $location, $routeParams, UserService) {
     $scope.news = {};
     $scope.theEmpty = "";
 
@@ -13,8 +13,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
     $scope.isEmpty = function () {
         return empty;
     }
-
-     if (!$rootScope.loggedUser) {
+    if (!$rootScope.loggedUser) {
          $location.path('/user');
      }
 
@@ -33,18 +32,19 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             }
             return prev;
         }, []);
-        console.log($scope.categoryMenu)
     })
 
-    $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser.username)
-        .then(function (res) {
-            $scope.allNews = res.data;
-            if ($scope.allNews.length > 0) {
-                $scope.myNews = true;
-            } else {
-                $scope.myNews = false;
-            }
-        });
+    if (!$routeParams.id) {
+        $http.get(window.location.origin + '/news/userId/' + $rootScope.loggedUser.username)
+            .then(function (res) {
+                $scope.allNews = res.data;
+                if ($scope.allNews.length > 0) {
+                    $scope.myNews = true;
+                } else {
+                    $scope.myNews = false;
+                }
+            });
+        }
 
 
     $scope.addNewNews = function () {
@@ -88,14 +88,22 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         }
 
         newNews.categories = arr;
-        newNews.creator = $rootScope.loggedUser._id;
+        newNews.creator = $rootScope.loggedUser.username;
 
+        
+        if ($scope.news._id) {
+            $http.put(window.location.origin + '/waitingNews/'+$scope.news._id, newNews)
+                .then(function (res) {
+                    alert("Изпратено updated");
+                });
+        } else {
+            $http.post(window.location.origin + '/waitingNews', newNews)
+                .then(function (res) {
+                    alert("Изпратено");
+                });
+        }
         $scope.news = {};
-        $http.post(window.location.origin + '/waitingNews', newNews)
-            .then(function (res) {
-                alert("Изпратено");
-            });
-
+        
     }
 
 
@@ -107,4 +115,10 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         $scope.myNews = false;
     }
 
+    if ($routeParams.id) {
+        $http.get(window.location.origin + '/waitingNews/' + $routeParams.id).then(function (res) {
+            $scope.news = res.data[0];
+            $scope.myNews = false;
+        });
+    }
 });

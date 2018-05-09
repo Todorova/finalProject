@@ -185,4 +185,20 @@ router.post('/', helpers.checkLogin, function(req, res, next){
         });
 });
 
+router.delete('/:id', function (req, res, next) {
+    var newsCollection = req.db.get("news");
+    var commentsCollection = req.db.get('comments');
+
+    newsCollection.remove({_id:req.params.id}, { }, function (err, docs) {
+        if (err) {
+            res.status(500);
+            res.json({ err });
+        } else {
+            commentsCollection.remove({newsId: req.params.id});
+            res.status(200);
+            res.json();
+        }
+    });
+});
+
 module.exports = router;

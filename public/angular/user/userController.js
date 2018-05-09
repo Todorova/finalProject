@@ -1,7 +1,7 @@
 app.controller('userController', function ($scope, $http, $rootScope, $location, UserService) {
   $scope.user = {};
   $scope.theEmpty = "";
-  $scope.hideLogin = false;
+  $scope.hideLogin = $rootScope.loggedUser;
 
   var empty = false;
 
@@ -95,7 +95,8 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
   }
   $scope.logout = function () {
     $http.get(window.location.origin + '/users/logout');
-    $rootScope.loggedUser = {};
+    delete $rootScope.loggedUser;
+    $scope.hideLogin = false;
   }
 
 

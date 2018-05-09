@@ -3,7 +3,8 @@ app.directive('news', function () {
         templateUrl: 'angular/directives/newsPreviewTemplate.htm',
         restrict: 'E',
         scope: {
-            news: '='
+            news: '=',
+            waiting: '='
         }
     };
 });

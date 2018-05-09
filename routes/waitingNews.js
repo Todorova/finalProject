@@ -47,6 +47,26 @@ router.get('/', function (req, res, next) {
     });
 });
     
+router.put('/:id', function(req, res, next){
+  var news = req.body;
+
+  if(news.title == "" || news.text == ""){
+    res.status(422);
+    res.json({"info":"Unprocessable Entity"});
+  }
+  news.dateCreated = new Date();
+      var waitingCollection = req.db.get('waitingNews');
+      waitingCollection.update({_id: req.params.id}, news, function(err, dock){
+        if (err) {
+          res.status(500);
+          res.json(err);
+        } else {
+          res.status(200);
+          res.json(dock);
+        }
+      });
+});
+
 router.post('/', function(req, res, next){
     var news = req.body;
 

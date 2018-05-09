@@ -6,6 +6,7 @@
         <p>{{news.dateCreated}} автор: {{news.creator}}</p>
 
         <p>{{news.text}}</p>
+        <button ng-show="loggedUser.isAdmin" ng-click="deleteNews(news._id)">Изтрий</button>
         <div id='enterComment'>
             <input type="text" name='name' placeholder="Вашето име" ng-model='newComment.username'>
             </br>

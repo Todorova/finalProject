@@ -1,4 +1,4 @@
-app.controller('NewsPreviewController', function ($scope, $rootScope, $routeParams, $http) {
+app.controller('NewsPreviewController', function ($scope, $rootScope, $location, $routeParams, $http) {
 
     $http.get(window.location.origin + '/news/' + $routeParams.id).then(function (response) {
         $scope.news = response.data;
@@ -32,6 +32,14 @@ app.controller('NewsPreviewController', function ($scope, $rootScope, $routePara
     });
 
         $scope.comments.splice(index, 1);
+    }
+
+    $scope.deleteNews = function(id) {
+        $http.delete(window.location.origin + '/news/' + id)
+        .then(function(res){
+            alert('Новината е изтрита');
+            $location.url('/');
+        });
     }
 
     // newsId

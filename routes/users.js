@@ -73,10 +73,10 @@ router.delete('/delete/:name', function (req, res) {
   });
 });
 
-router.post('/:id/:isAdm', function (req, res, next) {
+router.post('/:id/:isAdmin', function (req, res, next) {
 
   var userCollection = req.db.get('users');
-  userCollection.update({_id:req.params.id}, {$set: {isAdmin:req.params.isAdm}}, function(err, docs){
+  userCollection.update({_id:req.params.id}, {$set: {isAdmin:req.params.isAdmin == "true"}}, function(err, docs){
     if (err) {
       res.status(500);
       res.json(err);
@@ -97,7 +97,7 @@ router.get('/', function (req, res, next) {
       res.json(err);
     } else {
       res.status(200);
-      res.json({ users });
+      res.json(users);
     }
   });
 

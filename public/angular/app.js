@@ -40,6 +40,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'angular/admin/admin.htm',
             controller: 'adminController'
         })
+        .when('/waitingNews/:id', {
+            templateUrl: 'angular/userInfo/userInfo.htm',
+            controller: 'infoController'
+        })
         .otherwise({
             templateUrl: 'angular/main/main.htm',
             controller: 'MainController'
