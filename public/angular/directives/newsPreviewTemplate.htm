@@ -2,7 +2,7 @@
 
 <a href="#!/news/{{news._id}}" ng-show="waiting != true "> 
     <img ng-src="{{news.img}}" alt="">
-    <h1>{{news.title}} WN: {{waiting}}</h1>
+    <h1>{{news.title}} {{waiting}}</h1>
 </a>
 
 <a href="#!/waitingNews/{{news._id}}" ng-show="waiting == true"> 
