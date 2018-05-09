@@ -24,12 +24,12 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
 
   $scope.login = function () {
-    if (!$scope.user.username) {
-      check("Username");
+    if (!$scope.user.username ||$scope.user.username.trim() == "" ) {
+      check("потребителско име");
       return;
     }
-    if (!$scope.user.password) {
-      check("Password");
+    if (!$scope.user.password ||$scope.user.password.trim() == "") {
+      check("парола");
       return;
     }
     UserService.login($scope.user).then(function (response) {
@@ -44,16 +44,16 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
   }
 
   $scope.addNewUser = function () {
-    if (!$scope.user.username) {
-      check("Username");
+    if (!$scope.user.username ||$scope.user.username.trim() == "") {
+      check("потребителско име");
       return;
     }
-    if (!$scope.user.password) {
-      check("Password");
+    if (!$scope.user.password ||$scope.user.password.trim() == "" || $scope.user.password.length <8 ) {
+      check("парола");
       return;
     }
-    if (!$scope.user.password2) {
-      check("Password");
+    if (!$scope.user.password2 ||$scope.user.password2.trim() == "" || $scope.user.password2.length <8 ) {
+      check("парола");
       return;
     }
 
@@ -64,22 +64,23 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
     delete $scope.user.password2;
 
-    UserService.register($scope.user)
+    UserService.register($scope.user);
     $scope.user = {};
     $scope.hideLogin = !$scope.hideLogin;
   }
 
   $scope.updateUserInfo = function () {
 
+
     if (!!$scope.user.password == "") {
       alert("Няма данни за редактиране");
       return;
     } else {
+
       if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "") {
         alert("Повтори паролата");
         return;
       }
-
       if (!!$scope.user.password != "" && !!$scope.user.password2 != "") {
         if ($scope.user.password != $scope.user.password2) {
           alert("Паролите не съвпадат");
@@ -88,10 +89,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
           $rootScope.loggedUser.password = $scope.user.password;
         }
       }
-      $http.put(window.location.origin + '/users/update', $rootScope.loggedUser)
-        .then(function (res) {
-          console.log(res);
-        });
+      UserService.update($rootScope.loggedUser);
     }
 
   }

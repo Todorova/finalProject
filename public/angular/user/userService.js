@@ -22,5 +22,13 @@ app.service('UserService', function ($http) {
         return $http.post(window.location.origin + '/users/login', user);
     }
 
+    this.update = function(newData){
+        $http.put(window.location.origin + '/users/update', newData)
+        .then(function (res) {
+          console.log(res);
+        }).catch(function(res){
+            console.log(res);
+        });
+    }
 
 });

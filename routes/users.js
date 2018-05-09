@@ -6,9 +6,17 @@ var sha1 = require('sha1');
 
 router.post('/register', function (req, res, next) {
   var newUser = req.body;
-  newUser.password = sha1(newUser.password);
+  
   newUser.isAdmin = false;
   var usersCollection = req.db.get('users');
+
+if(newUser.password.length < 8){
+  res.status(400);
+        res.json({ message: "The password must contain 8 characters" });
+}
+
+
+  newUser.password = sha1(newUser.password);
   usersCollection.find({ username: newUser.username }, {}, function (err, docs) {
     if (err) {
         res.status(500);

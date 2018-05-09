@@ -1,7 +1,7 @@
         <div ng-show="!loggedUser">
         <form ng-show="!hideLogin" class="myForm">
-                <input type="text" placeholder="username" ng-model="user.username">
-                <input type="password" placeholder="password" ng-model="user.password"> 
+                <input type="text" placeholder="Потребителско име" ng-model="user.username">
+                <input type="password" placeholder="Парола" ng-model="user.password"> 
                 <div>
                 <button class="sendData" ng-click="login()">Вход</button>
                 <button class="sendData" ng-click="hideFunc()">Регистриране</button>
@@ -9,10 +9,13 @@
             </form>
 
             <form ng-show="hideLogin" class="myForm">
-                    <input type="text" placeholder="username" ng-model="user.username">
-                    <input type="password" placeholder="password" ng-model="user.password">
-                    <input type="password" placeholder="enter password again" ng-model="user.password2">
+                    <input type="text" placeholder="Потребителско име" ng-model="user.username">
+                    <p>Трябва да съдържа поне 6 символа</p>
+                    <input type="password" placeholder="Парола" ng-model="user.password">
+                    <p>Трябва да съдържа поне 8 символа</p>
+                    <input type="password" placeholder="Повтори паролата" ng-model="user.password2">
                     <div><button class="sendData" ng-click="addNewUser()">Регистриране</button></div>
+                    <button class="sendData" ng-click="hideFunc()">Вход</button>
             </form>
 
            
@@ -20,14 +23,15 @@
 
         <div ng-show="loggedUser" class="myForm">
                 <h2>Редактиране на профила</h2>
-                        <input type="text" placeholder="{{loggedUser.username}}" ng-model="user.username">
-                        <input type="password" placeholder="password" ng-model="user.password">
-                        <input type="password" placeholder="enter password again" ng-model="user.password2">
+                        <input type="text" placeholder="{{loggedUser.username}}" disabled ng-model="user.username">
+                        <p>Потребителско име не може да се редактира заради уникалността</p>
+                        <input type="password" placeholder="Нова парола" ng-model="user.password">
+                        <input type="password" placeholder="Повтори новата паролата" ng-model="user.password2">
                         <div><button class="sendData" ng-click="updateUserInfo()">Редактирай</button></div>
         </div>
 
         <div>
-                <h3 class="error" ng-show="isEmpty()">{{theEmpty}} e празно поле</h3>
+                <h3 class="error" ng-show="isEmpty()">Има грешка в {{theEmpty}}</h3>
         </div>
 
 
