@@ -2,10 +2,10 @@
         <form ng-show="!hideLogin" class="myForm">
                 <input type="text" placeholder="Потребителско име" ng-model="user.username">
                 <input type="password" placeholder="Парола" ng-model="user.password"> 
-                <div>
+                
                 <button class="sendData" ng-click="login()">Вход</button>
                 <button class="sendData" ng-click="hideFunc()">Регистриране</button>
-            </div>
+            
             </form>
 
             <form ng-show="hideLogin" class="myForm">
@@ -24,7 +24,7 @@
         <div ng-show="loggedUser" class="myForm">
                 <h2>Редактиране на профила</h2>
                         <input type="text" placeholder="{{loggedUser.username}}" disabled ng-model="user.username">
-                        <p>Потребителско име не може да се редактира заради уникалността</p>
+                        <p>Потребителско име е уникално и не може да се редактира!</p>
                         <input type="password" placeholder="Нова парола" ng-model="user.password">
                         <input type="password" placeholder="Повтори новата паролата" ng-model="user.password2">
                         <div><button class="sendData" ng-click="updateUserInfo()">Редактирай</button></div>

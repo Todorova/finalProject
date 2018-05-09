@@ -59,12 +59,15 @@ a:hover{
 }
 #login img{
     width: 7%;
-    padding-left: 1%; 
+    padding-left: 0.3%; 
     margin-top: 3%; 
 }
 
 #login span{
-    padding: 1%;
+    padding-left: 0.3%;
+}
+#login a{
+    padding-left: 0.5%;
 }
 
 #logo{
@@ -420,10 +423,12 @@ img.aside {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #adminMenu{
+    border: 2px solid rgba(66, 61, 61, 0.842);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     width: 57%;
-    background-color:  #292828;
-    border: 1px solid rgba(145, 141, 141, 0.842);
-margin: auto
+    background-color: #292828;
+    margin-left: 17%;
 
 }
 .userCss:hover{
@@ -508,16 +513,35 @@ margin: auto
     background-color: rgb(247, 121, 48);
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-size: 16px;
-    margin: 4px 2px;
+    /* margin: 10% 2px; */
     cursor: pointer;
-    margin-left: 2em;
+    
 }
 
 .sendData:hover {
     background-color: #4CAF50;
     color: white;
+}
+.myForm{
+    width: 57%;
+    background-color:  #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    margin: auto;
+    margin-left: 3px;
+    display: inline-block;
+    border-radius: 5px;
+    padding-top: 5%;
+    padding-bottom: 20%;
+    text-align: center;
+}
+
+.myForm button{
+    margin: 0em auto;
+    /* margin-left: 15%; */
+    margin-top:10%; 
+   
 }
 
 .myForm input{
@@ -526,7 +550,7 @@ margin: auto
     color:rgb(247, 121, 48);
     display: block;
     margin: 0em auto;
-    margin-top:1em; 
+    margin-top:5%; 
     border-radius: 8px;
     font-size: 1.5em;
     background: transparent;
@@ -543,7 +567,9 @@ margin: auto
 .myForm p{
     color: white;
     display: inline-block;
-    margin-left: 17em;
+    margin: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .myForm input:focus{
@@ -602,7 +628,10 @@ margin: auto
 .userNews{
     width: 57%;
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 1%;
+    background-color: #292828;
+    border: 1px solid rgba(145, 141, 141, 0.842);
+    border-radius: 5px;
 }
 
 .userNews > p{
@@ -614,13 +643,20 @@ margin: auto
     margin-bottom: 0.5em;
 }
 
-.userNews img h1 {
-    margin-left: 11%;
+.userNews img {
+    float: left;
+    margin: 3%;
+    
+}
+.userNews h1 {
+    float: left;
+    margin-left: 3%;
+    
 }
 
-.userNews div{
+/* .userNews div{
     margin-left: 11%;
-}
+} */
 
 #enterComment{
     width: 97%;
