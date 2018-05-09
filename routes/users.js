@@ -24,7 +24,6 @@ if(newUser.password.length < 8){
     }
 
     if (docs.length === 0) {
-        newUser.password = sha1(newUser.password);
         newUser.isAdmin = false;
         
         usersCollection.insert(newUser, function (err, docs) {
