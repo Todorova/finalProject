@@ -88,9 +88,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
         }
 
         newNews.categories = arr;
-        newNews.creator = $rootScope.loggedUser.username;
-        console.log( $rootScope.loggedUser.username)
-        console.log( $rootScope.loggedUser)
+        newNews.creator = $rootScope.loggedUser._id;
 
         $scope.news = {};
         $http.post(window.location.origin + '/waitingNews', newNews)

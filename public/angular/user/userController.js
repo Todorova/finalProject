@@ -64,22 +64,17 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
     delete $scope.user.password2;
 
-    UserService.register($scope.user);
-    console.log($scope.user);
+    UserService.register($scope.user)
     $scope.user = {};
     $scope.hideLogin = !$scope.hideLogin;
   }
 
   $scope.updateUserInfo = function () {
 
-    if (!!$scope.user.username == "" && !!$scope.user.password == "") {
+    if (!!$scope.user.password == "") {
       alert("Няма данни за редактиране");
       return;
     } else {
-      if (!!$scope.user.username != "") {
-        $rootScope.loggedUser.username = $scope.user.username;
-      }
-
       if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "") {
         alert("Повтори паролата");
         return;
@@ -93,7 +88,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
           $rootScope.loggedUser.password = $scope.user.password;
         }
       }
-      $http.post(window.location.origin + '/users/update', $rootScope.loggedUser)
+      $http.put(window.location.origin + '/users/update', $rootScope.loggedUser)
         .then(function (res) {
           console.log(res);
         });

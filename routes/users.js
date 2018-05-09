@@ -34,6 +34,22 @@ router.post('/register', function (req, res, next) {
 });
 });
 
+router.put('/update', function (req, res, next) {
+  var newUser = req.body;
+  newUser.password = sha1(newUser.password);
+ 
+  var usersCollection = req.db.get('users');
+  usersCollection.update({ _id: newUser._id }, newUser, function (err, docs) {
+    if (err) {
+        res.status(500);
+        res.json(err);
+    }else{
+      res.status(200);
+        res.json(docs);
+    }
+  });
+});
+
 router.delete('/delete/:name', function (req, res) {
   var userCollection = req.db.get('users');
 
