@@ -25,7 +25,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
     })
       .catch(function (err) {
         $rootScope.clouseAlertI = true;
-        $rootScope.alertMessage ="Грешно име или парола";
+        $rootScope.alertMessage ="Грешно име или парола!";
       });
 
   }
@@ -53,7 +53,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
     if ($scope.user.password != $scope.user.password2) {
       $rootScope.clouseAlertI = true;
-      $rootScope.alertMessage ="Паролите не съвпадат";
+      $rootScope.alertMessage ="Паролите не съвпадат!";
       return;
     }
 
@@ -69,19 +69,19 @@ app.controller('userController', function ($scope, $http, $rootScope, $location,
 
     if (!!$scope.user.password == "") {
       $rootScope.clouseAlertI = true;
-      $rootScope.alertMessage ="Няма данни за редактиране";
+      $rootScope.alertMessage ="Няма данни за редактиране!";
       return;
     } else {
 
       if (!!$scope.user.password != "" && !!$scope.user.password2 == "" || !!$scope.user.password2 != "" && !!$scope.user.password == "") {
         $rootScope.clouseAlertW = true;
-      $rootScope.alertMessage = "Повтори паролата";
+      $rootScope.alertMessage = "Повтори паролата!";
         return;
       }
       if (!!$scope.user.password != "" && !!$scope.user.password2 != "") {
         if ($scope.user.password != $scope.user.password2) {
           $rootScope.clouseAlertI = true;
-          $rootScope.alertMessage ="Паролите не съвпадат";
+          $rootScope.alertMessage ="Паролите не съвпадат!";
           return;
         } else {
           $rootScope.loggedUser.password = $scope.user.password;

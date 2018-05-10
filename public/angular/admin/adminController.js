@@ -40,10 +40,10 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
         $http.post(window.location.origin + '/news', data)
             .then(function (res) {
                 $rootScope.clouseAlertS = true;
-                $rootScope.alertMessage = "Потвърдихте новината";
+                $rootScope.alertMessage = "Успешно потвърдихте новината!";
             }).catch(function(res){
                 $rootScope.clouseAlertI = true;
-                $rootScope.alertMessage ="Неуспешно потвърждаване";
+                $rootScope.alertMessage ="Неуспешно потвърждаване!";
             });
 
         $http.delete(window.location.origin + '/waitingNews/' + id)
@@ -64,7 +64,7 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
         $http.delete(window.location.origin + '/waitingNews/' + id)
             .then(function (res) {
                 $rootScope.clouseAlertD = true;
-                $rootScope.alertMessage ="Успешно отхвърлихте новината";
+                $rootScope.alertMessage ="Успешно отхвърлихте новината!";
 
                 var index = $scope.allNews.findIndex(function (news) {
                     if (news._id == id) return news;
@@ -89,14 +89,15 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
                     $scope.userToDelete = "";
                     $scope.del = true;
                     $rootScope.clouseAlertD = true;
-                    $rootScope.alertMessage ="Успешно изтрихте потребителя";
+                    $rootScope.alertMessage ="Успешно изтрихте потребителя!";
+                    $scope.users = $scope.users.filter(function(user) { return user.username != username});
                 }).catch(function(res){
                     $rootScope.clouseAlertI = true;
-                    $rootScope.alertMessage ="Неуспешно изтриване на потребителя";
+                    $rootScope.alertMessage ="Неуспешно изтриване на потребителя!";
                 });
         } else {
             $rootScope.clouseAlertW = true;
-            $rootScope.alertMessage = "Не съществува такова потребителско име";
+            $rootScope.alertMessage = "Не съществува такова потребителско име!";
         }
     }
 
@@ -115,7 +116,7 @@ app.controller('adminController', function ($http, $scope, $rootScope, $location
             });
         } else {
             $rootScope.clouseAlertW = true;
-            $rootScope.alertMessage = "Не съществува такова потребителско име";
+            $rootScope.alertMessage = "Не съществува такова потребителско име!";
         }
     }
 

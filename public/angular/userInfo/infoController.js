@@ -45,17 +45,17 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
 
         if (!$scope.news.title) {
             $rootScope.clouseAlertW = true;
-            $rootScope.alertMessage = "Попълването на поле заглавие е задължително";
+            $rootScope.alertMessage = "Попълването на поле заглавие е задължително!";
             return;
         }
         if (!$scope.news.text) {
             $rootScope.clouseAlertW = true;
-            $rootScope.alertMessage = "Попълването на поле текст е задължително";
+            $rootScope.alertMessage = "Попълването на поле текст е задължително!";
             return;
         }
         if (!$scope.news.img) {
             $rootScope.clouseAlertW = true;
-            $rootScope.alertMessage = "Попълването на поле снимки е задължително";
+            $rootScope.alertMessage = "Попълването на поле снимки е задължително!";
             return;
         }
 
@@ -92,7 +92,7 @@ app.controller('infoController', function ($http, $scope, $rootScope, $location,
             $http.post(window.location.origin + '/waitingNews', newNews)
                 .then(function (res) {
                     $rootScope.clouseAlertS = true;
-                    $rootScope.alertMessage = "Новината е изпратена за одобрение";
+                    $rootScope.alertMessage = "Новината е изпратена за одобрение!";
                 });
         }
         $scope.news = {};

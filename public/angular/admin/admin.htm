@@ -8,8 +8,8 @@
         <p>Изтрий потребител</p>
         <div class="divs">
                 <input id="deleteUser" ng-model="userToDelete" type="text" placeholder="Потребителско име">
-                <button ng-click="deleteUserFunc()" class="sendData">Намери</button>
-                <p ng-show="del">Изтрихте потребителя</p>
+                <button ng-click="deleteUserFunc()" class="sendData">Изтриване</button>
+                <!-- <p ng-show="del">Изтрихте потребителя</p> -->
             </div>
 
     </div>
@@ -56,7 +56,7 @@
 </div>
 <div ng-show="clouseAlertW " class="alert warning">
     <span ng-click="clouse()" class="closebtn">&times;</span>  
-    <strong>Внимание!</strong> {{alertMessage}}
+    {{alertMessage}}
   </div>
   <div ng-show="clouseAlertD" class="alert">
     <span ng-click="clouse()" class="closebtn">&times;</span>  
