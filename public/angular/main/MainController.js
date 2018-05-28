@@ -22,11 +22,11 @@ app.controller('MainController', function ($scope, $http,$location, $timeout, $r
     
 
     $scope.showAllNews = function (){
-        
         console.log( $scope.allNews)
     }
 
     $scope.selected = 0;
+    
     function changeSelected() {
         $scope.selected++;
         if ($scope.selected == 5) {

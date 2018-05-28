@@ -153,12 +153,18 @@ a:hover{
 #livescore table tbody td{
     width: 40%;
     padding-top: 2%;
-    padding-bottom: 2%;
+    padding-bottom: 2%;  
+    border-radius: 3px;
+    /* padding-left: 3px; */
+    text-align: center;
 }
-
-
+#livescore table tbody:nth-child(even){
+border: 1px solid rgb(155, 163, 155);
+border-radius: 7px;
+}
 #livescore table tbody:nth-child(odd){
     background-color: rgba(145, 141, 141, 0.842);
+
 }
 #livescore table th{
     font-weight: bolder;

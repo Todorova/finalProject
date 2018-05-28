@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+//delete waiting news
 router.delete('/:id', function (req, res) {
   var allNews = req.db.get('waitingNews');
   var id = req.params.id;
@@ -47,6 +49,8 @@ router.get('/', function (req, res, next) {
     });
 });
     
+
+//edit waiting news
 router.put('/:id', function(req, res, next){
   var news = req.body;
 
@@ -67,6 +71,8 @@ router.put('/:id', function(req, res, next){
       });
 });
 
+
+//add waiting news
 router.post('/', function(req, res, next){
     var news = req.body;
 

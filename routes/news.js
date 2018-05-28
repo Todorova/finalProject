@@ -127,6 +127,8 @@ router.get('/userId/:name', function (req, res, next) {
     });
 });
 
+
+//increase visited count
 router.get('/:id', function (req, res, next) {
     var newsCollection = req.db.get("news");
 
@@ -141,6 +143,7 @@ router.get('/:id', function (req, res, next) {
         }
     });
 });
+
 router.get('/:id/comments', function (req, res, next) {
     var newsCollection = req.db.get("comments");
 
@@ -155,6 +158,8 @@ router.get('/:id/comments', function (req, res, next) {
     });
 });
 
+
+//add comments
 router.post('/:id/comment', function(req, res, next) {
     var commentCollection = req.db.get('comments');
     var comment = req.body;
@@ -170,6 +175,8 @@ router.post('/:id/comment', function(req, res, next) {
     });
 });
 
+
+//add news
 router.post('/', helpers.checkLogin, function(req, res, next){
     var data = req.body;
     data.dateCreated = new Date(data.dateCreated);
@@ -185,6 +192,9 @@ router.post('/', helpers.checkLogin, function(req, res, next){
         });
 });
 
+
+
+//delete news and comments
 router.delete('/:id', function (req, res, next) {
     var newsCollection = req.db.get("news");
     var commentsCollection = req.db.get('comments');
